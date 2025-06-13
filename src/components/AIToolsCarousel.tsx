@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface AITool {
@@ -16,17 +17,31 @@ interface AIToolsCarouselProps {
 }
 
 const AIToolsCarousel: React.FC<AIToolsCarouselProps> = ({ tools }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: false,
-    align: 'start',
-    slidesToScroll: 1,
-    breakpoints: {
-      '(min-width: 768px)': { slidesToScroll: 2 }
-    }
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { 
+      loop: true,
+      align: 'start',
+      slidesToScroll: 1,
+      breakpoints: {
+        '(min-width: 768px)': { slidesToScroll: 2 }
+      }
+    },
+    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+  );
 
-  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
-  const scrollNext = () => emblaApi && emblaApi.scrollNext();
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    
+    // Optional: Add any additional setup here
+  }, [emblaApi]);
 
   return (
     <div className="relative">
@@ -40,11 +55,13 @@ const AIToolsCarousel: React.FC<AIToolsCarouselProps> = ({ tools }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <a
+              <motion.a
                 href={tool.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bio-card rounded-xl p-4 shadow-sm transition-all-smooth hover:shadow-md block"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="bio-card rounded-xl p-4 shadow-sm transition-all-smooth hover:shadow-lg block"
               >
                 <div className="flex items-center space-x-4">
                   <img
@@ -57,7 +74,7 @@ const AIToolsCarousel: React.FC<AIToolsCarouselProps> = ({ tools }) => {
                     <p className="text-sm text-gray-500">AI Tool</p>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             </motion.div>
           ))}
         </div>
