@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import HeroSection from '../components/HeroSection';
 import SegmentSwitch from '../components/SegmentSwitch';
-import ProductCard from '../components/ProductCard';
+import ShopSection from '../components/ShopSection';
+import ShopPreviewCard from '../components/ShopPreviewCard';
 import AIToolsCarousel from '../components/AIToolsCarousel';
 import LinkPill from '../components/LinkPill';
 import { profileData } from '../data/profile';
@@ -65,58 +66,39 @@ const Index = () => {
               transition={{ duration: 0.3 }}
               className="space-y-4"
             >
+              {/* Shop Preview Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0 }}
+              >
+                <ShopPreviewCard
+                  products={productsData}
+                  onShopClick={() => setActiveSegment(1)}
+                />
+              </motion.div>
+
+              {/* Social Links */}
               {socialLinksData.map((link, index) => (
                 <motion.div
                   key={link.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: (index + 1) * 0.1 }}
                 >
                   <LinkPill
                     name={link.name}
                     url={link.url}
                     avatar={link.avatar}
+                    description={link.description}
+                    backgroundImage={link.backgroundImage}
                   />
                 </motion.div>
               ))}
             </motion.div>
           ) : (
             // Shop Section
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Product Grid */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                {productsData.slice(0, 3).map((product, index) => (
-                  <motion.div
-                    key={product.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className={index === 2 ? "col-span-2" : ""}
-                  >
-                    <ProductCard {...product} />
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* See Full Shop Link */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="text-center"
-              >
-                <a
-                  href="/shop"
-                  className="inline-flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  See Full Shop – {productsData.length} products
-                </a>
-              </motion.div>
-            </motion.div>
+            <ShopSection products={productsData} />
           )}
         </div>
 

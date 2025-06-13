@@ -8,9 +8,10 @@ interface ProductCardProps {
   image: string;
   price: string;
   url: string;
+  isLarge?: boolean;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ name, image, price, url }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ name, image, price, url, isLarge = false }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
@@ -19,8 +20,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, image, price, url }) =>
       whileTap={{ scale: 0.98 }}
       className="bio-card rounded-2xl shadow-sm overflow-hidden cursor-pointer transition-all-smooth"
     >
-      <a href={url} className="block">
-        <div className="aspect-square relative overflow-hidden">
+      <a href={url} className={`block ${isLarge ? 'flex' : ''}`}>
+        <div className={`relative overflow-hidden ${
+          isLarge
+            ? 'w-1/2 aspect-[4/3]'
+            : 'aspect-square'
+        }`}>
           {!imageLoaded && (
             <div className="absolute inset-0 shimmer bg-gray-200" />
           )}
@@ -34,9 +39,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, image, price, url }) =>
             loading="lazy"
           />
         </div>
-        <div className="p-4">
-          <h3 className="font-medium text-sm text-gray-900 mb-1">{name}</h3>
-          <p className="text-sm font-semibold bio-accent">{price}</p>
+        <div className={`${isLarge ? 'w-1/2 flex flex-col justify-center p-6' : 'p-3'}`}>
+          <h3 className={`font-medium text-gray-900 mb-1 line-clamp-2 ${
+            isLarge ? 'text-lg' : 'text-xs'
+          }`}>{name}</h3>
+          <p className={`font-semibold bio-accent ${
+            isLarge ? 'text-xl' : 'text-xs'
+          }`}>{price}</p>
         </div>
       </a>
     </motion.div>

@@ -2,14 +2,37 @@
 export const socialLinksData = [
   {
     id: 1,
-    name: "Facebook",
-    url: "https://facebook.com/example",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
+    name: "🔗 Bithub – Tạo link Bio chuyên nghiệp",
+    url: "https://the-bithub.com/?ref=leovu",
+    description: "Tạo shop affiliate, gắn sản phẩm đa nền tảng, tracking chi tiết, bật/tắt link thông minh",
+    backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/main/95428d0bfe4be07cadb8203459dbf320.jpg"
   },
   {
     id: 2,
-    name: "PanDev00",
-    url: "https://pandev00.com",
-    avatar: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=40&h=40&fit=crop&crop=face"
+    name: "🤖 Makeugc – video KOLs dễ dàng",
+    url: "https://www.makeugc.ai/?ref=leovu",
+    description: "Cách nhanh nhất để tạo video ads – Nghìn đơn",
+    backgroundImage: "https://the-bithub.com/Makeugc"
+  },
+  {
+    id: 3,
+    name: "🎯 Pikzels",
+    url: "https://pikzels.com",
+    description: "Top YouTuber dùng AI thumbnail để có triệu view – Đừng bỏ lỡ",
+    backgroundImage: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&auto=format&q=80"
+  },
+  {
+    id: 4,
+    name: "🍎 deftgpt – Trợ lý A.I không thể thiếu",
+    url: "https://deftgpt.com",
+    description: "Tóm tắt, ghi chú, hiểu tài liệu nhanh gọn – không cần đọc hàng trăm trang",
+    backgroundImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop&auto=format&q=80"
+  },
+  {
+    id: 5,
+    name: "🟡 easy-peasy – Sáng tạo vô hạn",
+    url: "https://easy-peasy.ai",
+    description: "Viết bài, tạo ảnh, tổng tiếng, làm video – tất cả trong một công cụ AI dễ dùng",
+    backgroundImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&h=300&fit=crop&auto=format&q=80"
   }
 ];
