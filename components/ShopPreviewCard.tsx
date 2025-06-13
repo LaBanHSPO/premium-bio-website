@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 interface Product {
-  id: string;
+  id: number;
   name: string;
   price: string;
   image: string;
@@ -24,7 +24,7 @@ const ShopPreviewCard: React.FC<ShopPreviewCardProps> = ({ products, onShopClick
     >
       {/* Mini Product Grid */}
       <div className="grid grid-cols-3 gap-2 mb-3">
-        {products.slice(0, 3).map((product, index) => (
+        {products.slice(0, 3).map((product) => (
           <div
             key={product.id}
             className="aspect-square rounded-lg overflow-hidden bg-gray-100"

@@ -90,7 +90,6 @@ export default function Home() {
                   <LinkPill
                     name={link.name}
                     url={link.url}
-                    avatar={link.avatar}
                     description={link.description}
                     backgroundImage={link.backgroundImage}
                   />
