@@ -5,7 +5,7 @@ export const socialLinksData = [
     name: "🔗 Goomp – Viết bài hay, miễn phí",
     url: "https://goomp.sitehub.bio/",
     description: "Bạn chỉ cần một công cụ để viết bài, tạo ảnh, miễn phí 1000 bài, dễ dàng sử dụng",
-    backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/main/95428d0bfe4be07cadb8203459dbf320.jpg"
+    backgroundImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
   },
   {
     id: 1,
