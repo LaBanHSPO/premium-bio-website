@@ -42,11 +42,26 @@ const ShopSection: React.FC<ShopSectionProps> = ({ products }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mb-6"
+          className="mb-4"
         >
           <ProductCard {...products[2]} isLarge={true} />
         </motion.div>
       )}
+
+      {/* See Full Shop Link */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4 }}
+        className="text-center pt-2"
+      >
+        <div className="text-sm font-medium text-gray-900 mb-1">
+          See Full Shop
+        </div>
+        <div className="text-xs text-gray-500">
+          {products.length} Products
+        </div>
+      </motion.div>
 
     </motion.div>
   );

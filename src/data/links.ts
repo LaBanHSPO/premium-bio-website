@@ -2,17 +2,17 @@
 export const socialLinksData = [
   {
     id: 1,
-    name: "🔗 Bithub – Tạo link Bio chuyên nghiệp",
-    url: "https://the-bithub.com/?ref=leovu",
+    name: "🔗 Sithub – Tạo link Bio chuyên nghiệp",
+    url: "",
     description: "Tạo shop affiliate, gắn sản phẩm đa nền tảng, tracking chi tiết, bật/tắt link thông minh",
     backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/main/95428d0bfe4be07cadb8203459dbf320.jpg"
   },
   {
     id: 2,
     name: "🤖 Makeugc – video KOLs dễ dàng",
-    url: "https://www.makeugc.ai/?ref=leovu",
+    url: "",
     description: "Cách nhanh nhất để tạo video ads – Nghìn đơn",
-    backgroundImage: "https://the-bithub.com/Makeugc"
+    backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/files/d1e8e48800577d90557b48c4b70cd1a5.jpg"
   },
   {
     id: 3,

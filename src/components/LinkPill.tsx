@@ -38,7 +38,7 @@ const LinkPill: React.FC<LinkPillProps> = ({
       }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className="block w-full max-w-md mx-auto"
+      className="block w-full"
       style={{ textDecoration: 'none', color: 'inherit' }}
     >
       <div

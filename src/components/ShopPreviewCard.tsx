@@ -20,7 +20,7 @@ const ShopPreviewCard: React.FC<ShopPreviewCardProps> = ({ products, onShopClick
       onClick={onShopClick}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className="w-full max-w-md mx-auto bg-white rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-200"
+      className="w-full bg-white rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-200"
     >
       {/* Mini Product Grid */}
       <div className="grid grid-cols-3 gap-2 mb-3">
