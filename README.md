@@ -96,6 +96,41 @@ Access the admin panel at `/admin` to update your bio information dynamically.
 
 The app will automatically use Edge Config for dynamic updates.
 
+
+## 🤝 Contributing
+
+We welcome all contributions to make this bio link app better!
+
+Whether you're fixing bugs, adding new features, improving documentation, or suggesting ideas — **we'd love your help**.
+
+### How to Contribute
+
+1. 🍴 Fork the repo and clone it
+2. 🌱 Create a new branch: `git checkout -b my-feature`
+3. 🔧 Make your changes
+4. ✅ Test everything thoroughly
+5. 📬 Submit a pull request with a clear description of what you’ve done
+
+### Suggestions & Issues
+
+Have an idea or found a bug?
+Open an [issue](https://github.com/LaBanHSPO/premium-bio-website/issues) — we’re always open to feedback and new perspectives.
+
+### Contribution Ideas
+
+* 🛠 Add new UI components or animations
+* 🌐 Support for more social platforms
+* 📦 Improve Edge Config structure or performance
+* 🧪 Add tests for API endpoints or components
+* 🌈 Theming and personalization improvements
+* 💬 Localization / i18n support
+
+---
+
+> ⭐ **Every contribution counts — small or big.
+> Let’s build an amazing open-source bio link platform together!**
+
+
 ## API Endpoints
 
 - `GET /api/config` - Fetch current bio configuration
@@ -117,33 +152,3 @@ MIT License - feel free to use this for your own bio page!
 - Navigate to the desired file(s).
 - Click the "Edit" button (pencil icon) at the top right of the file view.
 - Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/181cfc6e-f6f4-4037-b223-55da6edb3b1d) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
