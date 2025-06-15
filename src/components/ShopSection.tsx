@@ -1,14 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ProductCard from './ProductCard';
-
-interface Product {
-  id: string;
-  name: string;
-  price: string;
-  image: string;
-  url: string;
-}
+import { Product } from '@/lib/types';
 
 interface ShopSectionProps {
   products: Product[];
@@ -47,21 +40,6 @@ const ShopSection: React.FC<ShopSectionProps> = ({ products }) => {
           <ProductCard {...products[2]} isLarge={true} />
         </motion.div>
       )}
-
-      {/* See Full Shop Link */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
-        className="text-center pt-2"
-      >
-        <div className="text-sm font-medium text-gray-900 mb-1">
-          See Full Shop
-        </div>
-        <div className="text-xs text-gray-500">
-          {products.length} Products
-        </div>
-      </motion.div>
 
     </motion.div>
   );

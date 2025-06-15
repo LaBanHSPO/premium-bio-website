@@ -1,16 +1,11 @@
 
 import React, { useCallback, useEffect } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-interface AITool {
-  id: number;
-  name: string;
-  logo: string;
-  url: string;
-}
+import { AITool } from '@/lib/types';
 
 interface AIToolsCarouselProps {
   tools: AITool[];
@@ -64,10 +59,12 @@ const AIToolsCarousel: React.FC<AIToolsCarouselProps> = ({ tools }) => {
                 className="bio-card rounded-xl p-4 shadow-sm transition-all-smooth hover:shadow-lg block"
               >
                 <div className="flex items-center space-x-4">
-                  <img
+                  <Image
                     src={tool.logo}
                     alt={tool.name}
-                    className="w-12 h-12 rounded-lg object-cover"
+                    width={48}
+                    height={48}
+                    className="rounded-lg object-cover"
                   />
                   <div>
                     <h3 className="font-medium text-gray-900">{tool.name}</h3>

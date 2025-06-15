@@ -16,6 +16,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'tiemnhaxinh96.sitehub.bio',
+      },
+      {
+        protocol: 'https',
         hostname: 'via.placeholder.com',
       },
       {

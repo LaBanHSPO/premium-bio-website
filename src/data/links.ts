@@ -1,38 +1,45 @@
 
 export const socialLinksData = [
   {
-    id: 1,
-    name: "🔗 Sithub – Tạo link Bio chuyên nghiệp",
-    url: "",
-    description: "Tạo shop affiliate, gắn sản phẩm đa nền tảng, tracking chi tiết, bật/tắt link thông minh",
-    backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/main/95428d0bfe4be07cadb8203459dbf320.jpg"
+    id: 0,
+    name: "🔗 ConazAI – Viết bài hay, miễn phí",
+    url: "https://conazai.sagozen.digital/",
+    description: "Bạn chỉ cần một công cụ để viết bài, tạo ảnh, miễn phí 1000 bài, dễ dàng sử dụng",
+    backgroundImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
   },
   {
-    id: 2,
-    name: "🤖 Makeugc – video KOLs dễ dàng",
-    url: "",
-    description: "Cách nhanh nhất để tạo video ads – Nghìn đơn",
+    id: 3,
+    name: "Monica - Trợ lý AI toàn năng - tất cả trong 1",
+    url: "https://monica.im/invitation-affiliate?ref=zwu1nwu&ref_aff=zwu1nwu ",
+    description: "Monica là trợ lý AI toàn năng, giúp bạn quản lý và tăng hiệu quả cho các công việc hàng ngày.",
     backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/files/d1e8e48800577d90557b48c4b70cd1a5.jpg"
   },
   {
     id: 3,
-    name: "🎯 Pikzels",
-    url: "https://pikzels.com",
-    description: "Top YouTuber dùng AI thumbnail để có triệu view – Đừng bỏ lỡ",
-    backgroundImage: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&auto=format&q=80"
+    name: "MagicLight - Tạo phim hoạt hình",
+    url: "https://www.magiclight.ai/official-website?code=tsb3kxzt2",
+    description: "Chất lượng cao, thu hút nhiều lượt xem",
+    backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/files/d1e8e48800577d90557b48c4b70cd1a5.jpg"
+  },
+  {
+    id: 3,
+    name: "Synthesia - Tạo video Persona",
+    url: "https://www.magiclight.ai/official-website?code=tsb3kxzt2",
+    description: "Cách nhanh nhất để tạo video chuyển đổi cao",
+    backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/files/d1e8e48800577d90557b48c4b70cd1a5.jpg"
   },
   {
     id: 4,
-    name: "🍎 deftgpt – Trợ lý A.I không thể thiếu",
-    url: "https://deftgpt.com",
-    description: "Tóm tắt, ghi chú, hiểu tài liệu nhanh gọn – không cần đọc hàng trăm trang",
-    backgroundImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop&auto=format&q=80"
+    name: "🤖 MakeUGC – video KOLs dễ dàng",
+    url: "https://www.magiclight.ai/official-website?code=tsb3kxzt2",
+    description: "Cách nhanh nhất để tạo video ads – Nghìn đơn",
+    backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/files/d1e8e48800577d90557b48c4b70cd1a5.jpg"
   },
   {
     id: 5,
-    name: "🟡 easy-peasy – Sáng tạo vô hạn",
-    url: "https://easy-peasy.ai",
-    description: "Viết bài, tạo ảnh, tổng tiếng, làm video – tất cả trong một công cụ AI dễ dùng",
-    backgroundImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&h=300&fit=crop&auto=format&q=80"
+    name: "🎯 VPS giá rẻ, máy chủ toàn cầu Contabo",
+    url: "https://pikzels.com",
+    description: "Top YouTuber dùng AI thumbnail để có triệu view – Đừng bỏ lỡ",
+    backgroundImage: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&auto=format&q=80"
   }
 ];

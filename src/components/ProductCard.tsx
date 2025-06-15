@@ -1,13 +1,10 @@
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { Product } from '@/lib/types';
 
-interface ProductCardProps {
-  id: number;
-  name: string;
-  image: string;
-  price: string;
-  url: string;
+interface ProductCardProps extends Product {
   isLarge?: boolean;
 }
 
@@ -29,14 +26,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, image, price, url, isLa
           {!imageLoaded && (
             <div className="absolute inset-0 shimmer bg-gray-200" />
           )}
-          <img
+          <Image
             src={image}
             alt={name}
-            className={`w-full h-full object-cover transition-opacity duration-300 ${
+            fill
+            className={`object-cover transition-opacity duration-300 ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             onLoad={() => setImageLoaded(true)}
-            loading="lazy"
+            sizes={isLarge ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 25vw"}
           />
         </div>
         <div className={`${isLarge ? 'w-1/2 flex flex-col justify-center p-6' : 'p-3'}`}>

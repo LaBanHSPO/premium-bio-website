@@ -1,13 +1,9 @@
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Globe, Twitter, Mail, Youtube } from 'lucide-react';
-
-interface SocialLink {
-  name: string;
-  url: string;
-  icon: string;
-}
+import { SocialLink } from '@/lib/types';
 
 interface HeroSectionProps {
   name: string;
@@ -44,10 +40,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         transition={{ duration: 0.8 }}
         className="h-64 relative overflow-hidden rounded-t-3xl"
       >
-        <img
+        <Image
           src={coverImage}
           alt="Cover"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          priority
+          sizes="(max-width: 768px) 100vw, 384px"
         />
         {/* Professional Gradient + Blur Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
@@ -61,10 +60,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         >
           <div className="relative">
             <div className="w-20 h-20 rounded-full bg-white p-1 shadow-xl">
-              <img
+              <Image
                 src={avatar}
                 alt={name}
-                className="w-full h-full rounded-full object-cover"
+                width={72}
+                height={72}
+                className="rounded-full object-cover"
+                priority
               />
             </div>
           </div>
