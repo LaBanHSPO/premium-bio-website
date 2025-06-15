@@ -12,28 +12,28 @@ export const socialLinksData = [
     name: "Monica - Trợ lý AI toàn năng - tất cả trong 1",
     url: "https://monica.im/invitation-affiliate?ref=zwu1nwu&ref_aff=zwu1nwu ",
     description: "Monica là trợ lý AI toàn năng, giúp bạn quản lý và tăng hiệu quả cho các công việc hàng ngày.",
-    backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/files/d1e8e48800577d90557b48c4b70cd1a5.jpg"
+    backgroundImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
   },
   {
     id: 3,
     name: "MagicLight - Tạo phim hoạt hình",
     url: "https://www.magiclight.ai/official-website?code=tsb3kxzt2",
     description: "Chất lượng cao, thu hút nhiều lượt xem",
-    backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/files/d1e8e48800577d90557b48c4b70cd1a5.jpg"
+    backgroundImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
   },
   {
     id: 3,
     name: "Synthesia - Tạo video Persona",
     url: "https://www.magiclight.ai/official-website?code=tsb3kxzt2",
     description: "Cách nhanh nhất để tạo video chuyển đổi cao",
-    backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/files/d1e8e48800577d90557b48c4b70cd1a5.jpg"
+    backgroundImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
   },
   {
     id: 4,
     name: "🤖 MakeUGC – video KOLs dễ dàng",
     url: "https://www.magiclight.ai/official-website?code=tsb3kxzt2",
     description: "Cách nhanh nhất để tạo video ads – Nghìn đơn",
-    backgroundImage: "https://d2v55crl1k4v3v.cloudfront.net/uploads/files/d1e8e48800577d90557b48c4b70cd1a5.jpg"
+    backgroundImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
   },
   {
     id: 5,

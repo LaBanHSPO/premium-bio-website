@@ -1,7 +1,7 @@
 
 export const profileData = {
   name: "Ban Nguyen",
-  tagline: "🛠️ Free bio-web for everyone. Wanted help non-tech founder scale your SaaS for better profits & UX!",
+  tagline: "🚀 I help you build a professional bio website in just 5 minutes – totally free, no coding needed, fully customizable, and 100% yours to own.",
   avatar: "/avatar.jpg",
   coverImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop&crop=center",
   socialLinks: [

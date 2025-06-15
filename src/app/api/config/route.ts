@@ -26,7 +26,12 @@ export async function GET() {
     if (process.env.EDGE_CONFIG) {
       try {
         const { get } = await import('@vercel/edge-config');
-        const bioData = await get<BioData>('bioData');
+        const allBioData = await get('bioData') || {};
+        const domain = process.env.DOMAIN || 'default';
+        
+        console.log(`Fetching bioData for domain: ${domain}`);
+        const bioData = allBioData[domain] as BioData;
+        
         console.log('bioData from Edge Config:', bioData);
         if (bioData) {
           return NextResponse.json(bioData);

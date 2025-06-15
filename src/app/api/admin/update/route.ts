@@ -35,6 +35,17 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+
+    // Lấy dữ liệu hiện tại
+    const { get } = await import('@vercel/edge-config');
+    const allBioData = await get('bioData') || {};
+    const domain = process.env.DOMAIN || 'default';
+                
+    // Cập nhật dữ liệu cho domain hiện tại
+    const updatedData =  {
+      ...allBioData,
+      [domain]: validatedData.bioData
+    };
     
     const updateResponse = await fetch(
       `https://api.vercel.com/v1/edge-config/${edgeConfigId}/items`,
@@ -49,7 +60,7 @@ export async function POST(request: NextRequest) {
             {
               operation: 'upsert',
               key: 'bioData',
-              value: validatedData.bioData,
+              value: updatedData,
             },
           ],
         }),

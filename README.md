@@ -47,6 +47,7 @@ ADMIN_SECRET=your_secure_admin_secret
 EDGE_CONFIG=your_edge_config_connection_string
 EDGE_CONFIG_ID=your_edge_config_id
 EDGE_CONFIG_TOKEN=your_vercel_api_token
+DOMAIN=your_domain_or_namespace
 ```
 
 ### 3. Vercel Edge Config Setup

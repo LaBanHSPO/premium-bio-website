@@ -86,7 +86,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       >
         <h1 className="text-2xl font-bold text-gray-900 mb-2 tracking-tight">{name}</h1>
         <div className="max-w-sm mx-auto mb-6">
-          <p className="text-sm text-gray-600 leading-relaxed font-medium">
+          <p className="text-sm text-gray-600 leading-relaxed font-medium whitespace-pre-line break-words leading-relaxed">
             {tagline}
           </p>
         </div>

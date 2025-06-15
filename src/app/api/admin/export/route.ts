@@ -30,22 +30,17 @@ export async function POST(request: NextRequest) {
     // Lấy dữ liệu hiện tại (logic tương tự /api/config)
     let bioData: BioData = fallbackData;
 
-    // Trong môi trường development, sử dụng fallback data
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Development mode: using fallback data for export');
-    } else {
-      // Trong production, thử lấy từ Edge Config
-      if (process.env.EDGE_CONFIG) {
-        try {
-          const { get } = await import('@vercel/edge-config');
-          const edgeConfigData = await get<BioData>('bioData');
-          if (edgeConfigData) {
-            bioData = edgeConfigData;
-          }
-        } catch (edgeConfigError) {
-          console.error('Edge Config error during export:', edgeConfigError);
-          // Sử dụng fallback data nếu Edge Config fails
+    if (process.env.EDGE_CONFIG) {
+      try {
+        const domain = process.env.DOMAIN || 'default';
+        const { get } = await import('@vercel/edge-config');
+        const edgeConfigData = await get<BioData>('bioData');
+        if (edgeConfigData) {
+          bioData = edgeConfigData[domain];
         }
+      } catch (edgeConfigError) {
+        console.error('Edge Config error during export:', edgeConfigError);
+        // Sử dụng fallback data nếu Edge Config fails
       }
     }
 

@@ -9,23 +9,19 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    remotePatterns: [
+    remotePatterns: [      
+      {
+        protocol: 'https',
+        hostname: process.env.DOMAIN,
+      },
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
       {
         protocol: 'https',
-        hostname: 'tiemnhaxinh96.sitehub.bio',
-      },
-      {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'd2v55crl1k4v3v.cloudfront.net',
-      },
+        hostname: 'res.cloudinary.com',
+      }
     ],
   },
 }
