@@ -11,7 +11,7 @@ export const socialLinkSchema = z.object({
 export const profileSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   tagline: z.string().min(1, 'Tagline is required'),
-  avatar: z.string().url('Must be a valid URL'),
+  avatar: z.string().min(1, 'Must be a valid URL'),
   coverImage: z.string().url('Must be a valid URL'),
   socialLinks: z.array(socialLinkSchema),
 });
@@ -20,7 +20,7 @@ export const profileSchema = z.object({
 export const linkSchema = z.object({
   id: z.number(),
   name: z.string().min(1, 'Name is required'),
-  url: z.string().url('Must be a valid URL'),
+  url: z.string().min(1, 'URL is required'),
   description: z.string().min(1, 'Description is required'),
   backgroundImage: z.string().url('Must be a valid URL'),
 });
@@ -39,7 +39,7 @@ export const aiToolSchema = z.object({
   id: z.number(),
   name: z.string().min(1, 'Name is required'),
   logo: z.string().url('Must be a valid URL'),
-  url: z.string().url('Must be a valid URL'),
+  url: z.string().min(1, 'URL is required'),
 });
 
 // Complete Bio Data Schema

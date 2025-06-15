@@ -14,7 +14,8 @@ A modern bio link application built with Next.js that supports dynamic configura
   - Social links
   - Bio links
   - Products showcase
-  - AI tools carousel
+  - Swipable carousel
+  - Lightweight but powerful mini e-commerce module for creators and small sellers.
 
 ## Getting Started
 
@@ -76,8 +77,8 @@ Access the admin panel at `/admin` to update your bio information dynamically.
 - **Profile Management**: Update name, tagline, avatar, and cover image
 - **Social Links**: Add/edit/remove social media links
 - **Bio Links**: Manage your bio links with descriptions and images
-- **Products**: Showcase your products with images and pricing
-- **AI Tools**: Display your favorite AI tools
+- **Products**: Showcase your products with images and pricing, user can see the detail product and do checkout (Stripe/Paypal/Bank Transfer)
+- **Swipable carousel**: Display your favorite things in a swipable carousel
 
 ### Security
 

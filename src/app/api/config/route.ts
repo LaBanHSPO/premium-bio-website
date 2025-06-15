@@ -17,10 +17,10 @@ const fallbackData: BioData = {
 export async function GET() {
   try {
     // Trong môi trường development, chỉ trả về fallback data
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Development mode: returning fallback data');
-      return NextResponse.json(fallbackData);
-    }
+    // if (process.env.NODE_ENV === 'development') {
+    //   console.log('Development mode: returning fallback data');
+    //   return NextResponse.json(fallbackData);
+    // }
 
     // Trong production, thử lấy từ Edge Config
     if (process.env.EDGE_CONFIG) {
