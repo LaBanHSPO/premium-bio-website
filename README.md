@@ -1,6 +1,14 @@
-# Bio Link App with Dynamic Configuration
 
-A modern bio link application built with Next.js that supports dynamic configuration updates through Vercel Edge Config API.
+# Premium Bio Website Open Source
+
+- Live: [https://pandev00.sitehub.bio](https://pandev00.sitehub.bio)
+
+- This is a new open-source project that marks the beginning of my real journey into affiliate marketing (AI saas, website services) that COMMITED TO SUCCESS.
+My goal is simple: to help people with no coding skills canbuild better bio websites easily, free forever.
+
+- NO MONTHLY FEE OR SETUP FEE NEEDED.
+
+- A modern bio link application built with Next.js that supports dynamic configuration updates through Vercel Edge Config API, deploy on your own account with full ability for customizing and integrating.
 
 ## Features
 
