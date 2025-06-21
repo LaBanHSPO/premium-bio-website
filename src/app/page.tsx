@@ -65,14 +65,15 @@ export default function Home() {
 
   return (
     <div className={`min-h-screen bio-background transition-all duration-300`}>
+      <div className="h-12" />
       {/* Theme Toggle */}
-      <button
+      {/* <button
         onClick={toggleTheme}
         className="fixed top-4 right-4 z-50 w-10 h-10 bio-card rounded-full shadow-md flex items-center justify-center hover:shadow-lg transition-all"
         aria-label="Toggle theme"
       >
         {isDarkMode ? '☀️' : '🌙'}
-      </button>
+      </button> */}
 
       <div className="max-w-sm mx-auto">
         {/* Hero Section */}
@@ -85,7 +86,7 @@ export default function Home() {
         />
 
         {/* Segment Control */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.5 }}
@@ -96,7 +97,7 @@ export default function Home() {
             activeIndex={activeSegment}
             onChange={setActiveSegment}
           />
-        </motion.div>
+        </motion.div> */}
 
         {/* Content Sections */}
         <div className="px-6 mt-8">
@@ -109,7 +110,7 @@ export default function Home() {
               className="space-y-4"
             >
               {/* Shop Preview Card */}
-              <motion.div
+              {/*<motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0 }}
@@ -118,7 +119,7 @@ export default function Home() {
                   products={bioData.products}
                   onShopClick={() => setActiveSegment(1)}
                 />
-              </motion.div>
+              </motion.div> */}
 
               {/* Social Links */}
               {bioData.links.map((link, index) => (
@@ -144,7 +145,7 @@ export default function Home() {
         </div>
 
         {/* AI Tools Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.5 }}
@@ -152,7 +153,7 @@ export default function Home() {
         >
           <h2 className="text-2xl font-semibold text-gray-900 mb-6">My useful AI tools</h2>
           <AIToolsCarousel tools={bioData.aiTools} />
-        </motion.div>
+        </motion.div> */}
 
         {/* Bottom Spacing */}
         <div className="h-12" />
