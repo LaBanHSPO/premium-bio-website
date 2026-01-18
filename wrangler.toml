@@ -1,0 +1,62 @@
+name = "premium-bio-website"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "./out"
+
+# Production environment
+[env.production]
+name = "premium-bio-website"
+
+# D1 Database
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "premium-bio-db"
+database_id = "539d40de-68bc-43f6-bb9b-fef11612f7cf"
+
+# KV Namespaces
+[[env.production.kv_namespaces]]
+binding = "CONFIG_CACHE"
+id = "670f1bfb9a6c4aa78ca3e02c11d073c7"
+
+[[env.production.kv_namespaces]]
+binding = "SESSIONS"
+id = "b08bebbc74394cf896bf72e8ac3b138d"
+
+[[env.production.kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "101638b524e645c09b8285c4f01dcae8"
+
+# R2 Bucket
+[[env.production.r2_buckets]]
+binding = "MEDIA"
+bucket_name = "bio-media"
+
+# Preview environment (for PRs)
+[env.preview]
+name = "premium-bio-website-preview"
+
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "premium-bio-db"
+database_id = "539d40de-68bc-43f6-bb9b-fef11612f7cf"
+preview_database_id = "539d40de-68bc-43f6-bb9b-fef11612f7cf"
+
+[[env.preview.kv_namespaces]]
+binding = "CONFIG_CACHE"
+id = "670f1bfb9a6c4aa78ca3e02c11d073c7"
+preview_id = "670f1bfb9a6c4aa78ca3e02c11d073c7"
+
+[[env.preview.kv_namespaces]]
+binding = "SESSIONS"
+id = "b08bebbc74394cf896bf72e8ac3b138d"
+preview_id = "b08bebbc74394cf896bf72e8ac3b138d"
+
+[[env.preview.kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "101638b524e645c09b8285c4f01dcae8"
+preview_id = "101638b524e645c09b8285c4f01dcae8"
+
+[[env.preview.r2_buckets]]
+binding = "MEDIA"
+bucket_name = "bio-media"
+preview_bucket_name = "bio-media"
