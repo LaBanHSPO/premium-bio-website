@@ -11,17 +11,20 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Plus, Trash2, Save, Loader2, Download, Upload } from 'lucide-react';
+import { Plus, Trash2, Save, Loader2, Download, Upload, LogOut } from 'lucide-react';
 import { toast } from 'sonner';
 import { adminFormSchema, type AdminFormData, type BioData } from '@/lib/types';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function AdminPage() {
+  const { isAuthenticated, login, logout, getAuthHeaders } = useAuth();
+  const [loginForm, setLoginForm] = useState({ username: '', password: '' });
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingData, setIsLoadingData] = useState(true);
   const [isExporting, setIsExporting] = useState(false);
   const [isImporting, setIsImporting] = useState(false);
   const [showImportDialog, setShowImportDialog] = useState(false);
-  const [importSecret, setImportSecret] = useState('');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const form = useForm<AdminFormData>({
@@ -73,16 +76,15 @@ export default function AdminPage() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          ...getAuthHeaders(),
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ bioData: data.bioData }),
       });
 
-      const result = await response.json();
+      const result = await response.json() as { error?: string };
 
       if (response.ok) {
         toast.success('Bio data updated successfully!');
-        // Clear admin secret after successful update
-        form.setValue('adminSecret', '');
       } else {
         toast.error(result.error || 'Failed to update bio data');
       }
@@ -96,20 +98,15 @@ export default function AdminPage() {
 
   // Export function
   const handleExport = async () => {
-    const adminSecret = form.getValues('adminSecret');
-    if (!adminSecret) {
-      toast.error('Please enter admin secret to export data');
-      return;
-    }
-
     setIsExporting(true);
     try {
       const response = await fetch('/api/admin/export', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          ...getAuthHeaders(),
         },
-        body: JSON.stringify({ adminSecret }),
+        body: JSON.stringify({}),
       });
 
       if (response.ok) {
@@ -124,7 +121,7 @@ export default function AdminPage() {
         document.body.removeChild(a);
         toast.success('Data exported successfully!');
       } else {
-        const result = await response.json();
+        const result = await response.json() as { error?: string };
         toast.error(result.error || 'Failed to export data');
       }
     } catch (error) {
@@ -137,11 +134,6 @@ export default function AdminPage() {
 
   // Import function
   const handleImport = async () => {
-    if (!importSecret) {
-      toast.error('Please enter admin secret to import data');
-      return;
-    }
-
     if (!selectedFile) {
       toast.error('Please select a JSON file to import');
       return;
@@ -156,19 +148,16 @@ export default function AdminPage() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          ...getAuthHeaders(),
         },
-        body: JSON.stringify({
-          adminSecret: importSecret,
-          bioData,
-        }),
+        body: JSON.stringify({ bioData }),
       });
 
-      const result = await response.json();
+      const result = await response.json() as { error?: string };
 
       if (response.ok) {
         toast.success('Data imported successfully!');
         setShowImportDialog(false);
-        setImportSecret('');
         setSelectedFile(null);
         // Reload current data
         const configResponse = await fetch('/api/config');
@@ -210,6 +199,78 @@ export default function AdminPage() {
     control: form.control,
     name: 'bioData.aiTools',
   });
+
+  // Login form if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+        <Card className="max-w-md w-full">
+          <CardHeader>
+            <CardTitle>Admin Login</CardTitle>
+            <CardDescription>
+              Please login to access the admin panel
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setIsLoggingIn(true);
+                try {
+                  await login(loginForm.username, loginForm.password);
+                  toast.success('Logged in successfully!');
+                } catch (error) {
+                  toast.error(error instanceof Error ? error.message : 'Login failed');
+                } finally {
+                  setIsLoggingIn(false);
+                }
+              }}
+              className="space-y-4"
+            >
+              <div className="space-y-2">
+                <label htmlFor="username" className="text-sm font-medium">
+                  Username
+                </label>
+                <Input
+                  id="username"
+                  type="text"
+                  placeholder="admin"
+                  value={loginForm.username}
+                  onChange={(e) => setLoginForm({ ...loginForm, username: e.target.value })}
+                  disabled={isLoggingIn}
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="password" className="text-sm font-medium">
+                  Password
+                </label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Enter your password"
+                  value={loginForm.password}
+                  onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
+                  disabled={isLoggingIn}
+                  required
+                />
+              </div>
+              <Button type="submit" className="w-full" disabled={isLoggingIn}>
+                {isLoggingIn ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Logging in...
+                  </>
+                ) : (
+                  'Login'
+                )}
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   if (isLoadingData) {
     return (
@@ -264,33 +325,24 @@ export default function AdminPage() {
                   <Upload className="h-4 w-4 mr-2" />
                   Import
                 </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={async () => {
+                    await logout();
+                    toast.success('Logged out successfully!');
+                  }}
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </Button>
               </div>
             </div>
           </CardHeader>
           <CardContent>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                {/* Admin Secret */}
-                <FormField
-                  control={form.control}
-                  name="adminSecret"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Admin Secret</FormLabel>
-                      <FormControl>
-                        <Input
-                          type="password"
-                          placeholder="Enter admin secret"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <Separator />
-
                 <Tabs defaultValue="profile" className="w-full">
                   <TabsList className="grid w-full grid-cols-4">
                     <TabsTrigger value="profile">Profile</TabsTrigger>
@@ -806,24 +858,11 @@ export default function AdminPage() {
             <DialogHeader>
               <DialogTitle>Import Bio Data</DialogTitle>
               <DialogDescription>
-                Upload a JSON file to import bio data. You need to enter the admin secret to proceed.
+                Upload a JSON file to import bio data.
               </DialogDescription>
             </DialogHeader>
 
             <div className="space-y-4">
-              <div>
-                <label htmlFor="import-secret" className="block text-sm font-medium mb-2">
-                  Admin Secret
-                </label>
-                <Input
-                  id="import-secret"
-                  type="password"
-                  placeholder="Enter admin secret"
-                  value={importSecret}
-                  onChange={(e) => setImportSecret(e.target.value)}
-                />
-              </div>
-
               <div>
                 <label htmlFor="import-file" className="block text-sm font-medium mb-2">
                   JSON File
@@ -852,7 +891,6 @@ export default function AdminPage() {
                 variant="outline"
                 onClick={() => {
                   setShowImportDialog(false);
-                  setImportSecret('');
                   setSelectedFile(null);
                 }}
                 disabled={isImporting}
@@ -862,7 +900,7 @@ export default function AdminPage() {
               <Button
                 type="button"
                 onClick={handleImport}
-                disabled={isImporting || !selectedFile || !importSecret}
+                disabled={isImporting || !selectedFile}
               >
                 {isImporting ? (
                   <>

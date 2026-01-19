@@ -65,3 +65,35 @@ export const adminFormSchema = z.object({
 });
 
 export type AdminFormData = z.infer<typeof adminFormSchema>;
+
+// Cloudflare Worker/Pages Environment
+export interface Env {
+  DB: D1Database;
+  CONFIG_CACHE: KVNamespace;
+  SESSIONS: KVNamespace;
+  RATE_LIMIT: KVNamespace;
+  MEDIA: R2Bucket;
+  ADMIN_SECRET: string;
+  DOMAIN: string;
+  R2_PUBLIC_DOMAIN?: string;
+}
+
+// Cloudflare Pages Functions type
+export interface EventContext<Env = unknown, P extends string = string, Data extends Record<string, unknown> = Record<string, unknown>> {
+  request: Request;
+  functionPath: string;
+  waitUntil: (promise: Promise<unknown>) => void;
+  passThroughOnException: () => void;
+  next: (input?: Request | string, init?: RequestInit) => Promise<Response>;
+  env: Env;
+  params: Record<P, string>;
+  data: Data;
+}
+
+export type PagesFunction<Env = unknown, Params extends string = string, Data extends Record<string, unknown> = Record<string, unknown>> = (
+  context: EventContext<Env, Params, Data>
+) => Response | Promise<Response>;
+
+export type PagesMiddleware<Env = unknown, Params extends string = string, Data extends Record<string, unknown> = Record<string, unknown>> = (
+  context: EventContext<Env, Params, Data>
+) => Response | Promise<Response | void>;

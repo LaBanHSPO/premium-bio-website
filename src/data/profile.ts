@@ -1,29 +1,23 @@
-
 export const profileData = {
   name: "Ban Nguyen",
-  tagline: "🚀 I help you build a professional bio website in just 5 minutes – totally free, no coding needed, fully customizable, and 100% yours to own.",
+  tagline: "Fullstack. Vibe Code. Spatial Computing. Whitelabel Apps",
   avatar: "/avatar.jpg",
-  coverImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop&crop=center",
+  coverImage: "https://assets.sitehub.bio/pandev00/bg-pandev00.webp",
   socialLinks: [
     {
-      name: "Website",
-      url: "https://example.com",
-      icon: "Globe"
+      name: "Personal Blog",
+      url: "https://pandev00.com/",
+      icon: "Globe",
     },
     {
-      name: "Twitter",
-      url: "https://twitter.com/example",
-      icon: "Twitter"
+      name: "X (Twitter)",
+      url: "https://x.com/pandev00",
+      icon: "Twitter",
     },
     {
       name: "Email",
-      url: "mailto:hello@example.com",
-      icon: "Mail"
+      url: "mailto:pandev00@sagozen.digital",
+      icon: "Mail",
     },
-    {
-      name: "YouTube",
-      url: "https://youtube.com/@example",
-      icon: "Youtube"
-    }
-  ]
+  ],
 };

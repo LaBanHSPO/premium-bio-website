@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { BioData } from '@/lib/types';
 
+export const runtime = 'edge';
+
 // Fallback data từ các file hiện tại
 import { profileData } from '@/data/profile';
 import { socialLinksData } from '@/data/links';
@@ -16,8 +18,8 @@ const fallbackData: BioData = {
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    
+    const body = await request.json() as { adminSecret: string };
+
     // Kiểm tra admin secret
     const adminSecret = process.env.ADMIN_SECRET;
     if (!adminSecret || body.adminSecret !== adminSecret) {

@@ -2,10 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { bioDataSchema } from '@/lib/types';
 import { ZodError } from 'zod';
 
+export const runtime = 'edge';
+
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    
+    const body = await request.json() as { adminSecret: string; bioData: unknown };
+
     // Kiểm tra admin secret
     const adminSecret = process.env.ADMIN_SECRET;
     if (!adminSecret || body.adminSecret !== adminSecret) {
@@ -61,7 +63,7 @@ export async function POST(request: NextRequest) {
     });
 
     const updatedData = {
-      ...allBioData,
+      ...bioDataObject,
       [domain]: validatedBioData
     };
     

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { adminFormSchema } from '@/lib/types';
 import { ZodError } from 'zod';
 
+export const runtime = 'edge';
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -40,10 +42,15 @@ export async function POST(request: NextRequest) {
     const { get } = await import('@vercel/edge-config');
     const allBioData = await get('bioData') || {};
     const domain = process.env.DOMAIN || 'default';
-                
+
+    // Đảm bảo allBioData là object
+    const bioDataObject = typeof allBioData === 'object' && allBioData !== null
+      ? allBioData
+      : {};
+
     // Cập nhật dữ liệu cho domain hiện tại
     const updatedData =  {
-      ...allBioData,
+      ...bioDataObject,
       [domain]: validatedData.bioData
     };
     
