@@ -1,6 +1,7 @@
 export const profileData = {
   name: "Ban Nguyen",
-  tagline: "Fullstack. Vibe Code. Spatial Computing. Whitelabel Apps",
+  tagline:
+    "Fullstack Developer. Vibe Code. Spatial Computing. White Label Apps",
   avatar: "/avatar.jpg",
   coverImage: "https://assets.sitehub.bio/pandev00/bg-pandev00.webp",
   socialLinks: [

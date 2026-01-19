@@ -1,15 +1,15 @@
-'use client'
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import HeroSection from '@/components/HeroSection';
-import SegmentSwitch from '@/components/SegmentSwitch';
-import ShopSection from '@/components/ShopSection';
-import ShopPreviewCard from '@/components/ShopPreviewCard';
-import AIToolsCarousel from '@/components/AIToolsCarousel';
-import LinkPill from '@/components/LinkPill';
-import { BioData } from '@/lib/types';
-import { Loader2 } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import HeroSection from "@/components/HeroSection";
+import SegmentSwitch from "@/components/SegmentSwitch";
+import ShopSection from "@/components/ShopSection";
+import ShopPreviewCard from "@/components/ShopPreviewCard";
+import AIToolsCarousel from "@/components/AIToolsCarousel";
+import LinkPill from "@/components/LinkPill";
+import { BioData } from "@/lib/types";
+import { Loader2 } from "lucide-react";
 
 export default function Home() {
   const [activeSegment, setActiveSegment] = useState(0);
@@ -21,13 +21,13 @@ export default function Home() {
   useEffect(() => {
     const loadBioData = async () => {
       try {
-        const response = await fetch('/api/config');
+        const response = await fetch("/api/config");
         if (response.ok) {
           const data: BioData = await response.json();
           setBioData(data);
         }
       } catch (error) {
-        console.error('Failed to load bio data:', error);
+        console.error("Failed to load bio data:", error);
       } finally {
         setIsLoading(false);
       }
@@ -38,7 +38,10 @@ export default function Home() {
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
+    document.documentElement.setAttribute(
+      "data-theme",
+      isDarkMode ? "light" : "dark",
+    );
   };
 
   if (isLoading) {
@@ -56,7 +59,9 @@ export default function Home() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Failed to load bio data</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+            Failed to load bio data
+          </h1>
           <p className="text-gray-600">Please try refreshing the page.</p>
         </div>
       </div>
@@ -67,13 +72,13 @@ export default function Home() {
     <div className={`min-h-screen bio-background transition-all duration-300`}>
       <div className="h-12" />
       {/* Theme Toggle */}
-      {/* <button
+      <button
         onClick={toggleTheme}
         className="fixed top-4 right-4 z-50 w-10 h-10 bio-card rounded-full shadow-md flex items-center justify-center hover:shadow-lg transition-all"
         aria-label="Toggle theme"
       >
-        {isDarkMode ? '☀️' : '🌙'}
-      </button> */}
+        {isDarkMode ? "☀️" : "🌙"}
+      </button>
 
       <div className="max-w-sm mx-auto">
         {/* Hero Section */}
@@ -86,18 +91,18 @@ export default function Home() {
         />
 
         {/* Segment Control */}
-        {/* <motion.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.5 }}
           className="flex justify-center mt-8 px-6"
         >
           <SegmentSwitch
-            options={['Links', 'Shop']}
+            options={["Links", "Shop"]}
             activeIndex={activeSegment}
             onChange={setActiveSegment}
           />
-        </motion.div> */}
+        </motion.div>
 
         {/* Content Sections */}
         <div className="px-6 mt-8">

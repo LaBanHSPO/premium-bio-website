@@ -1,7 +1,8 @@
 name = "premium-bio-website"
 compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = "./out"
+pages_build_output_dir = ".vercel/output/static"
+account_id = "d75d0978428e12467185290c27919b53"
 
 # Production environment
 [env.production]
@@ -11,20 +12,20 @@ name = "premium-bio-website"
 [[env.production.d1_databases]]
 binding = "DB"
 database_name = "premium-bio-db"
-database_id = "539d40de-68bc-43f6-bb9b-fef11612f7cf"
+database_id = "0c946d16-6c68-4372-b21a-dd1c804f5782"
 
 # KV Namespaces
 [[env.production.kv_namespaces]]
 binding = "CONFIG_CACHE"
-id = "670f1bfb9a6c4aa78ca3e02c11d073c7"
+id = "e36b071558714b77ad2baf1b6c53b33c"
 
 [[env.production.kv_namespaces]]
 binding = "SESSIONS"
-id = "b08bebbc74394cf896bf72e8ac3b138d"
+id = "7ac06b9b2303406fa27ae18253413700"
 
 [[env.production.kv_namespaces]]
 binding = "RATE_LIMIT"
-id = "101638b524e645c09b8285c4f01dcae8"
+id = "5e1b3a1520b8427ca451494f17be1021"
 
 # R2 Bucket
 [[env.production.r2_buckets]]
@@ -38,23 +39,23 @@ name = "premium-bio-website-preview"
 [[env.preview.d1_databases]]
 binding = "DB"
 database_name = "premium-bio-db"
-database_id = "539d40de-68bc-43f6-bb9b-fef11612f7cf"
-preview_database_id = "539d40de-68bc-43f6-bb9b-fef11612f7cf"
+database_id = "0c946d16-6c68-4372-b21a-dd1c804f5782"
+preview_database_id = "0c946d16-6c68-4372-b21a-dd1c804f5782"
 
 [[env.preview.kv_namespaces]]
 binding = "CONFIG_CACHE"
-id = "670f1bfb9a6c4aa78ca3e02c11d073c7"
-preview_id = "670f1bfb9a6c4aa78ca3e02c11d073c7"
+id = "e36b071558714b77ad2baf1b6c53b33c"
+preview_id = "e36b071558714b77ad2baf1b6c53b33c"
 
 [[env.preview.kv_namespaces]]
 binding = "SESSIONS"
-id = "b08bebbc74394cf896bf72e8ac3b138d"
-preview_id = "b08bebbc74394cf896bf72e8ac3b138d"
+id = "7ac06b9b2303406fa27ae18253413700"
+preview_id = "7ac06b9b2303406fa27ae18253413700"
 
 [[env.preview.kv_namespaces]]
 binding = "RATE_LIMIT"
-id = "101638b524e645c09b8285c4f01dcae8"
-preview_id = "101638b524e645c09b8285c4f01dcae8"
+id = "5e1b3a1520b8427ca451494f17be1021"
+preview_id = "5e1b3a1520b8427ca451494f17be1021"
 
 [[env.preview.r2_buckets]]
 binding = "MEDIA"
