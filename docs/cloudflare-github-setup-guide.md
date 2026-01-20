@@ -28,7 +28,7 @@ This guide will walk you through setting up automatic deployment to Cloudflare P
    - Account - Cloudflare Pages - Edit
    - Account - D1 - Edit (if using D1)
    - Account - Workers KV Storage - Edit (if using KV)
-   - Account - R2 - Edit (if using R2)
+   - Account - Workers R2 Storage - Edit (if using R2)
 
    **Account Resources:**
    - Include - Your Account (select your account)
