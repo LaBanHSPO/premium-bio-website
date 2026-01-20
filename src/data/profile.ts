@@ -3,7 +3,7 @@ export const profileData = {
   tagline:
     "Fullstack Developer. Vibe Code. Spatial Computing. White Label Apps",
   avatar: "/avatar.jpg",
-  coverImage: "https://assets.sitehub.bio/pandev00/bg-pandev00.webp",
+  coverImage: "https://assets.sitehub.bio/pandev00/Cover1-min.png",
   socialLinks: [
     {
       name: "Personal Blog",
