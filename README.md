@@ -1,167 +1,326 @@
+# 🚀 Premium Bio Website - Free Forever Bio Link Platform
 
-# Premium Bio Website Open Source
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-- Live: [https://pandev00.sitehub.bio](https://pandev00.sitehub.bio)
+> 🎉 **100% Free Forever** | No Monthly Fees | No Setup Costs | Fully Open Source
 
-- This is a new open-source project that marks the beginning of my real journey into affiliate marketing (AI saas, website services) that COMMITED TO SUCCESS.
-My goal is simple: to help people with no coding skills canbuild better bio websites easily, free forever.
+A modern, powerful alternative to Linktree, Stan Store, and other paid bio link services. Built with Next.js and hosted on Cloudflare's free tier for **lifetime free hosting**.
 
-- NO MONTHLY FEE OR SETUP FEE NEEDED.
+**Live Demo**: [https://pandev00.sitehub.bio](https://pandev00.sitehub.bio)
 
-- A modern bio link application built with Next.js that supports dynamic configuration updates through Vercel Edge Config API, deploy on your own account with full ability for customizing and integrating.
+---
 
-## Features
+## 🌟 Why Choose Premium Bio Website?
 
-- 🎨 Modern, responsive design
-- 🔧 Dynamic configuration updates without redeployment
-- 🔒 Secure admin panel with secret authentication
-- 📱 Mobile-first design
-- ⚡ Fast loading with Edge Config
-- 🎯 Support for:
-  - Profile information
-  - Social links
-  - Bio links
-  - Products showcase
-  - Swipable carousel
-  - Lightweight but powerful mini e-commerce module for creators and small sellers.
+| Feature | Premium Bio Website | Linktree | Stan Store |
+|---------|---------------------|----------|------------|
+| **Monthly Cost** | $0 Forever | $5-$24/mo | $29/mo |
+| **Setup Fee** | $0 | $0 | $0 |
+| **Custom Domain** | ✅ Free | ✅ Paid plans | ✅ Included |
+| **E-commerce** | ✅ Included | ❌ | ✅ Included |
+| **Full Customization** | ✅ Source code | ❌ Limited | ❌ Limited |
+| **Self-Hosted** | ✅ Your account | ❌ | ❌ |
+| **Open Source** | ✅ MIT License | ❌ | ❌ |
+| **No Branding** | ✅ Your brand | 💰 Paid plans | ✅ |
 
-## Getting Started
+---
 
-### 1. Install Dependencies
+## ✨ Features
+
+### 🎨 **Beautiful Design**
+- Modern, responsive UI that looks great on all devices
+- Mobile-first design optimized for creator audiences
+- Smooth animations and transitions with Framer Motion
+- Dark mode support (coming soon)
+
+### 🔧 **Powerful Admin Panel**
+- Secure admin dashboard with secret-key authentication
+- Real-time updates without redeployment
+- Drag-and-drop interface for link management
+- Image upload and management
+- Data import/export functionality
+
+### 🛍️ **Lightweight E-Commerce**
+- Product showcase with images and pricing
+- Shopping cart functionality
+- Multiple payment methods:
+  - Stripe integration
+  - PayPal support
+  - Bank transfer (domestic)
+- Product detail pages
+- Simple checkout flow
+
+### 📱 **Content Features**
+- Profile information (name, bio, avatar, cover image)
+- Unlimited social links
+- Rich bio links with descriptions and images
+- Swipable product/content carousel
+- SEO optimized
+
+### ⚡ **Edge-First Performance**
+- Hosted on Cloudflare Pages (free tier)
+- Global CDN distribution
+- Lightning-fast page loads
+- Zero cold starts
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+ or Bun
+- Git
+- Cloudflare account (free)
+- GitHub account
+
+### 1. Clone & Install
 
 ```bash
+# Clone the repository
+git clone https://github.com/LaBanHSPO/premium-bio-website.git
+cd premium-bio-website
+
+# Install dependencies
 npm install
 # or
-yarn install
-# or
-pnpm install
+bun install
 ```
 
 ### 2. Environment Setup
 
-Copy the example environment file and configure your variables:
-
 ```bash
+# Copy example environment file
 cp .env.example .env.local
 ```
 
-Configure the following environment variables in `.env.local`:
+Edit `.env.local` with your configuration:
 
 ```env
-# Admin secret for form submission
-ADMIN_SECRET=your_secure_admin_secret
+# Admin secret for authentication
+ADMIN_SECRET=your_secure_random_secret
 
-# Vercel Edge Config settings
-EDGE_CONFIG=your_edge_config_connection_string
-EDGE_CONFIG_ID=your_edge_config_id
-EDGE_CONFIG_TOKEN=your_vercel_api_token
-DOMAIN=your_domain_or_namespace
+# Cloudflare configuration (after migration)
+# For now, uses fallback data
 ```
 
-### 3. Vercel Edge Config Setup
-
-1. Create an Edge Config in your Vercel dashboard
-2. Get your Edge Config ID and connection string
-3. Generate a Vercel API token with Edge Config permissions
-4. Add these values to your environment variables
-
-### 4. Run Development Server
+### 3. Run Development Server
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
+bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see your bio page.
 
-## Admin Panel
+---
 
-Access the admin panel at `/admin` to update your bio information dynamically.
+## 📦 Deploy to Cloudflare (Free Forever)
 
-### Admin Features
+Deploy your own bio website on Cloudflare Pages for **free, forever**. No credit card required for the free tier.
 
-- **Profile Management**: Update name, tagline, avatar, and cover image
-- **Social Links**: Add/edit/remove social media links
-- **Bio Links**: Manage your bio links with descriptions and images
-- **Products**: Showcase your products with images and pricing, user can see the detail product and do checkout (Stripe/Paypal/Bank Transfer)
-- **Swipable carousel**: Display your favorite things in a swipable carousel
+### Quick Deploy
 
-### Security
+1. **Fork this repository** on GitHub
+2. **Connect to Cloudflare Pages**:
+   - Go to [Cloudflare Dashboard](https://dash.cloudflare.com)
+   - Navigate to Workers & Pages → Create application → Pages → Connect to Git
+   - Select your forked repository
+3. **Configure build settings**:
+   - Build command: `npm run pages:build`
+   - Build output directory: `.vercel/output/static`
+4. **Deploy** and get your free URL: `https://your-project.pages.dev`
 
-- Admin panel is protected by a secret key
-- All updates require authentication
-- Data validation with Zod schemas
+### Detailed Setup Guide
 
-## Deployment
+For step-by-step instructions with screenshots, see our comprehensive guide:
 
-### Deploy to Vercel
+📖 **[Cloudflare + GitHub Setup Guide](./docs/cloudflare-github-setup-guide.md)**
 
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Configure environment variables in Vercel dashboard
-4. Deploy!
-
-The app will automatically use Edge Config for dynamic updates.
-
-
-## 🤝 Contributing
-
-We welcome all contributions to make this bio link app better!
-
-Whether you're fixing bugs, adding new features, improving documentation, or suggesting ideas — **we'd love your help**.
-
-### How to Contribute
-
-1. 🍴 Fork the repo and clone it
-2. 🌱 Create a new branch: `git checkout -b my-feature`
-3. 🔧 Make your changes
-4. ✅ Test everything thoroughly
-5. 📬 Submit a pull request with a clear description of what you’ve done
-
-### Suggestions & Issues
-
-Have an idea or found a bug?
-Open an [issue](https://github.com/LaBanHSPO/premium-bio-website/issues) — we’re always open to feedback and new perspectives.
-
-### Contribution Ideas
-
-* 🛠 Add new UI components or animations
-* 🌐 Support for more social platforms
-* 📦 Improve Edge Config structure or performance
-* 🧪 Add tests for API endpoints or components
-* 🌈 Theming and personalization improvements
-* 💬 Localization / i18n support
+This guide covers:
+- Creating Cloudflare API tokens
+- Setting up GitHub Actions for auto-deploy
+- Configuring custom domains
+- Environment variables and bindings
+- Troubleshooting common issues
 
 ---
 
-> ⭐ **Every contribution counts — small or big.
-> Let’s build an amazing open-source bio link platform together!**
+## 🎯 How to Use
+
+### Access Admin Panel
+
+1. Navigate to `https://your-domain.com/admin`
+2. Enter your auth to authenticate
+3. Update your profile, links, products, and more
+4. Changes are reflected instantly on your bio page
+
+### Customize Your Bio Page
+
+The admin panel allows you to configure:
+
+- **Profile**: Name, tagline, avatar, cover image
+- **Social Links**: Add/edit/remove social media profiles
+- **Bio Links**: Create rich links with descriptions and thumbnails
+- **Products**: Showcase products with images, prices, and descriptions
+- **Carousel**: Display featured content in a swipable carousel
+
+### Import/Export Data
+
+- **Export**: Backup your configuration as JSON
+- **Import**: Restore from backup or migrate from another platform
+
+---
+
+## 🏗️ Tech Stack
+
+| Category | Technology |
+|----------|-----------|
+| **Framework** | Next.js 14 (App Router) |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS |
+| **UI Components** | shadcn/ui + Radix UI |
+| **Forms** | React Hook Form + Zod |
+| **Animations** | Framer Motion |
+| **Deployment** | Cloudflare Pages |
+| **Storage** | Cloudflare KV + D1 + R2 |
+| **Analytics** | Vercel Analytics |
+
+---
+
+## 📊 Cloudflare Free Tier Limits
+
+You get these resources **completely free**:
+
+- ✅ **Pages**: Unlimited sites, 500 builds/month
+- ✅ **KV**: 100,000 reads/day, 1,000 writes/day
+- ✅ **D1**: 5 GB storage, 5M reads/day
+- ✅ **R2**: 10 GB storage, 1M reads/month
+- ✅ **Workers**: 100,000 requests/day
+- ✅ **Custom Domains**: Unlimited
+- ✅ **Global CDN**: Included
+
+**Perfect for personal brands, creators, and small businesses!**
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from the community! Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated.
+
+### How to Contribute
+
+1. 🍴 Fork the repository
+2. 🌱 Create a feature branch: `git checkout -b feature/my-feature`
+3. 🔧 Make your changes
+4. ✅ Test thoroughly
+5. 📬 Submit a pull request
+
+### Contribution Ideas
+
+- 🛠 Add new UI components or animations
+- 🌐 Support for more social platforms
+- 📦 Improve admin panel UX
+- 🧪 Add tests for critical functionality
+- 🌈 Theme and personalization options
+- 💬 Localization / i18n support
+- 📖 Documentation improvements
+
+### Issues & Suggestions
+
+Found a bug or have an idea? Open an [issue](https://github.com/LaBanHSPO/premium-bio-website/issues).
+
+---
+
+## 📝 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+**TL;DR**: You can use this for personal or commercial projects, modify it, and redistribute it freely. Attribution is appreciated but not required.
+
+---
+
+## 💼 Sponsored By
+
+<div align="center">
+  <a href="https://sagozen.digital" target="_blank">
+    <img src="https://assets.sitehub.bio/sagozen.jpg" alt="SAGOZEN LLC" width="200" />
+  </a>
+  
+  **[SAGOZEN LLC](https://sagozen.digital)**
+  
+  *Proud sponsor of this open-source project*
+  
+  Making professional bio pages accessible to everyone, forever free.
+</div>
+
+---
+
+## 🌍 Community & Support
+
+- 💬 **Discord**: [Join our community](https://discord.com/invite/WyW6MDgjzZ)
+- 🤝 **Facebook**: [Sagozen LLC](https://web.facebook.com/profile.php?id=61586598001416)
+- 📧 **Email**: hello@sagozen.digital
+- 🌟 **Star this repo** if you find it useful!
+
+---
+
+## 🗺️ Roadmap
+
+### ✅ Completed
+- [x] Core bio page functionality
+- [x] Admin panel with authentication
+- [x] Social links management
+- [x] Product showcase
+- [x] Cloudflare Pages deployment
+- [x] GitHub Actions auto-deploy
 
 
-## API Endpoints
 
-- `GET /api/config` - Fetch current bio configuration
-- `POST /api/admin/update` - Update bio configuration (requires admin secret)
+### 📋 Planned
+- [ ] Dark mode support
+- [ ] Custom themes
+- [ ] Multi-language support (i18n)
+- [ ] Advanced analytics
+- [ ] Mobile app (React Native)
+- [ ] Multi-user support
+- [ ] Third-party integrations (Zapier, etc.)
 
-## Tech Stack
+---
 
-- **Framework**: Next.js 14
-- **Styling**: Tailwind CSS
-- **UI Components**: Radix UI + shadcn/ui
-- **Forms**: React Hook Form + Zod validation
-- **Configuration**: Vercel Edge Config
-- **Animations**: Framer Motion
+## 📚 Documentation
 
-## License
+- 📖 [Cloudflare Setup Guide](./docs/cloudflare-github-setup-guide.md)
+- 🏗️ [System Architecture](./docs/system-architecture.md)
+- 💻 [Code Standards](./docs/code-standards.md)
+- 📋 [Project Overview](./docs/project-overview-pdr.md)
 
-MIT License - feel free to use this for your own bio page!
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🙏 Acknowledgments
 
-## Refer
-- https://stan.store/ (I'm using it)
+- Built with [Next.js](https://nextjs.org/)
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
+- Hosted on [Cloudflare Pages](https://pages.cloudflare.com/)
+- Inspired by [stan.store](https://stan.store/), [Linktree](https://linktr.ee/), and other bio link platforms
+
+---
+
+## ⭐ Star History
+
+If this project helped you, please consider giving it a star! It helps others discover the project.
+
+[![Star History Chart](https://api.star-history.com/svg?repos=LaBanHSPO/premium-bio-website&type=Date)](https://star-history.com/#LaBanHSPO/premium-bio-website&Date)
+
+---
+
+<div align="center">
+  
+**Built with ❤️ by creators, for creators**
+
+[Demo](https://pandev00.sitehub.bio) · [Documentation](./docs) · [Report Bug](https://github.com/LaBanHSPO/premium-bio-website/issues) · [Request Feature](https://github.com/LaBanHSPO/premium-bio-website/issues)
+
+</div>
