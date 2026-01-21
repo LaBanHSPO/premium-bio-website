@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "Ban Nguyen",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.svg",
         width: 1200,
         height: 630,
         alt: "Ban Nguyen - Fullstack Developer | Founder Sagozen Digital",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: "Ban Nguyen - Fullstack Developer | Founder Sagozen Digital",
     description:
       "Fullstack Developer specializing in Vibe Code, Spatial Computing, and White Label Apps. Building innovative solutions with modern tech.",
-    images: ["/og-image.png"],
+    images: ["/og-image.svg"],
     creator: "@pandev00",
   },
   robots: {

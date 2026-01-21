@@ -1,20 +1,163 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
+import { productsData } from "@/data/products";
+import { socialLinksData } from "@/data/links";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://pandev00.sitehub.bio'
+  const baseUrl = "https://pandev00.sitehub.bio";
+  const currentDate = new Date();
 
-  return [
+  // Main pages and sections
+  const mainRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 1,
+      lastModified: currentDate,
+      changeFrequency: "daily",
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/admin`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.3,
     },
-  ]
+  ];
+
+  // Product section routes
+  const productSectionRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/#products`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/#zen-journal`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/#sitehub-premium-bio`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/#white-label-mental-health`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/#white-label-pet-business`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+  ];
+
+  // Service section routes
+  const serviceSectionRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/#services`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/#digital-products`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/#3d-graphics-mockups`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/#professional-book-covers`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/#kdp-books`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/#pod-decorative-items`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+  ];
+
+  // Consulting section routes
+  const consultingSectionRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/#consulting`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/#personal-brand`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/#skill-stack`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/#minimum-viable-offer`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/#distribution-system`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/#brand-monetization`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+  ];
+
+  // Bio links (external references)
+  const socialLinkRoutes = socialLinksData.map((link) => ({
+    url: link.url,
+    lastModified: currentDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  // Product purchase links (external)
+  const productPurchaseRoutes = productsData.map((product) => ({
+    url: product.url,
+    lastModified: currentDate,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  return [
+    ...mainRoutes,
+    ...productSectionRoutes,
+    ...serviceSectionRoutes,
+    ...consultingSectionRoutes,
+    ...socialLinkRoutes,
+    ...productPurchaseRoutes,
+  ];
 }
