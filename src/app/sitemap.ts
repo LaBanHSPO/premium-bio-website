@@ -1,6 +1,4 @@
 import { MetadataRoute } from "next";
-import { productsData } from "@/data/products";
-import { socialLinksData } from "@/data/links";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://pandev00.sitehub.bio";
@@ -136,28 +134,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Bio links (external references)
-  const socialLinkRoutes = socialLinksData.map((link) => ({
-    url: link.url,
-    lastModified: currentDate,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
-
-  // Product purchase links (external)
-  const productPurchaseRoutes = productsData.map((product) => ({
-    url: product.url,
-    lastModified: currentDate,
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
-
   return [
     ...mainRoutes,
     ...productSectionRoutes,
     ...serviceSectionRoutes,
     ...consultingSectionRoutes,
-    ...socialLinkRoutes,
-    ...productPurchaseRoutes,
   ];
 }
