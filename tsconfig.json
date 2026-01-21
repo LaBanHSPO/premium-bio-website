@@ -1,8 +1,14 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "es6"],
-    "types": ["@cloudflare/workers-types"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es6"
+    ],
+    "types": [
+      "@cloudflare/workers-types"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -21,13 +27,37 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@/components/*": [
+        "./src/themes/next-star/components/*"
+      ],
+      "@/lib/*": [
+        "./src/themes/next-star/lib/*"
+      ],
+      "@/hooks/*": [
+        "./src/themes/next-star/hooks/*"
+      ],
+      "@/i18n/*": [
+        "./src/themes/next-star/i18n/*"
+      ],
+      "@/theme/*": [
+        "./src/themes/next-star/*"
+      ]
     },
     "noImplicitAny": false,
     "noUnusedParameters": false,
     "noUnusedLocals": false,
     "strictNullChecks": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -2,7 +2,6 @@ name = "premium-bio-website"
 compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
-account_id = "d75d0978428e12467185290c27919b53"
 
 # Production environment
 [env.production]
