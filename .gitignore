@@ -49,3 +49,5 @@ next-env.d.ts
 *.njsproj
 *.sln
 *.sw?
+
+lovable-vite-react-repo
