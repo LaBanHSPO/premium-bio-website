@@ -12,12 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 1.0,
     },
-    {
-      url: `${baseUrl}/admin`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.3,
-    },
+
   ];
 
   // Product section routes

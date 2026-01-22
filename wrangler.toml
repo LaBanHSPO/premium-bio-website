@@ -1,62 +1,9 @@
-name = "premium-bio-website"
+name = "next-star"
 compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
 
 # Production environment
 [env.production]
-name = "premium-bio-website"
+name = "next-star"
 
-# D1 Database
-[[env.production.d1_databases]]
-binding = "DB"
-database_name = "premium-bio-db"
-database_id = "0c946d16-6c68-4372-b21a-dd1c804f5782"
-
-# KV Namespaces
-[[env.production.kv_namespaces]]
-binding = "CONFIG_CACHE"
-id = "e36b071558714b77ad2baf1b6c53b33c"
-
-[[env.production.kv_namespaces]]
-binding = "SESSIONS"
-id = "7ac06b9b2303406fa27ae18253413700"
-
-[[env.production.kv_namespaces]]
-binding = "RATE_LIMIT"
-id = "5e1b3a1520b8427ca451494f17be1021"
-
-# R2 Bucket
-[[env.production.r2_buckets]]
-binding = "MEDIA"
-bucket_name = "bio-media"
-
-# Preview environment (for PRs)
-[env.preview]
-name = "premium-bio-website-preview"
-
-[[env.preview.d1_databases]]
-binding = "DB"
-database_name = "premium-bio-db"
-database_id = "0c946d16-6c68-4372-b21a-dd1c804f5782"
-preview_database_id = "0c946d16-6c68-4372-b21a-dd1c804f5782"
-
-[[env.preview.kv_namespaces]]
-binding = "CONFIG_CACHE"
-id = "e36b071558714b77ad2baf1b6c53b33c"
-preview_id = "e36b071558714b77ad2baf1b6c53b33c"
-
-[[env.preview.kv_namespaces]]
-binding = "SESSIONS"
-id = "7ac06b9b2303406fa27ae18253413700"
-preview_id = "7ac06b9b2303406fa27ae18253413700"
-
-[[env.preview.kv_namespaces]]
-binding = "RATE_LIMIT"
-id = "5e1b3a1520b8427ca451494f17be1021"
-preview_id = "5e1b3a1520b8427ca451494f17be1021"
-
-[[env.preview.r2_buckets]]
-binding = "MEDIA"
-bucket_name = "bio-media"
-preview_bucket_name = "bio-media"

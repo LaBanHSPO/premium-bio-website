@@ -58,24 +58,11 @@ export type Product = z.infer<typeof productSchema>;
 export type AITool = z.infer<typeof aiToolSchema>;
 export type BioData = z.infer<typeof bioDataSchema>;
 
-// Admin Form Schema
-export const adminFormSchema = z.object({
-  adminSecret: z.string().min(1, 'Admin secret is required'),
-  bioData: bioDataSchema,
-});
 
-export type AdminFormData = z.infer<typeof adminFormSchema>;
 
 // Cloudflare Worker/Pages Environment
 export interface Env {
-  DB: D1Database;
-  CONFIG_CACHE: KVNamespace;
-  SESSIONS: KVNamespace;
-  RATE_LIMIT: KVNamespace;
-  MEDIA: R2Bucket;
-  ADMIN_SECRET: string;
-  DOMAIN: string;
-  R2_PUBLIC_DOMAIN?: string;
+  // Add environment variables here if needed
 }
 
 // Cloudflare Pages Functions type
