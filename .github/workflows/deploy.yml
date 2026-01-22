@@ -39,11 +39,14 @@ jobs:
         run: npm run pages:build
         env:
           NODE_ENV: production
+          THEME: ${{ vars.THEME }}
 
       - name: Ensure Cloudflare Pages Project Exists
         run: |
-          npx wrangler pages project get "$CLOUDFLARE_PROJECT_NAME" || \
-          npx wrangler pages project create "$CLOUDFLARE_PROJECT_NAME" --production-branch "main"
+          npx wrangler pages project list > projects.txt
+          if ! grep -q "$CLOUDFLARE_PROJECT_NAME" projects.txt; then
+            npx wrangler pages project create "$CLOUDFLARE_PROJECT_NAME" --production-branch "main"
+          fi
 
       - name: Deploy to Cloudflare Pages
         run: npm run pages:deploy
