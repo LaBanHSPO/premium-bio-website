@@ -97,6 +97,12 @@ We welcome contributions! Please feel free to submit a Pull Request.
 
 ---
 
+## 📜 Changelog
+
+See the [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes.
+
+---
+
 ## 📝 License
 
 This project is licensed under the **MIT License**.

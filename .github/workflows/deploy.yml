@@ -5,7 +5,6 @@ on:
     branches:
       - next-link
 
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
