@@ -6,35 +6,21 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ReactQueryProvider } from "./providers";
-import { profileData } from "@/themes/next-star/components/bio/data";
+import { config } from "@/themes/next-star/config";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pandev00.sitehub.bio"),
+  metadataBase: new URL(config.seo.url),
   title: {
-    default: "Ban Nguyen | (@pandev00)",
-    template: "%s | (@pandev00)",
+    default: config.seo.title.default,
+    template: config.seo.title.template,
   },
-  description:
-    "Building things with code, expressing through music, centering with GamePad and Zen mind",
-  keywords: [
-    "fullstack developer",
-    "Ban Nguyen",
-    "pandev00",
-    "10 years experience",
-    "sagozen digital",
-    "web development",
-    "mobile development",
-    "nextjs developer",
-    "react developer",
-    "typescript developer",
-    "cloudflare developer",
-    "software engineer",
-  ],
-  authors: [{ name: "Ban Nguyen", url: "https://pandev00.sitehub.bio" }],
-  creator: "Ban Nguyen",
-  publisher: "Sagozen Digital",
+  description: config.seo.description,
+  keywords: config.seo.keywords,
+  authors: [{ name: config.profile.name, url: config.seo.url }],
+  creator: config.profile.name,
+  publisher: "SiteHub",
   formatDetection: {
     email: false,
     address: false,
@@ -43,27 +29,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://pandev00.sitehub.bio",
-    title: "Ban Nguyen | (@pandev00)",
-    description:
-      "Building things with code, expressing through music, centering with GamePad and Zen mind",
-    siteName: "Ban Nguyen",
+    url: config.seo.url,
+    title: config.seo.title.default,
+    description: config.seo.description,
+    siteName: config.seo.openGraph.siteName,
     images: [
       {
-        url: profileData.avatarUrl,
+        url: config.profile.avatarUrl,
         width: 1200,
         height: 630,
-        alt: "Ban Nguyen",
+        alt: config.profile.name,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ban Nguyen | (@pandev00)",
-    description:
-      "Building things with code, expressing through music, centering with GamePad and Zen mind",
-    images: [profileData.avatarUrl],
-    creator: "@pandev00",
+    title: config.seo.title.default,
+    description: config.seo.description,
+    images: [config.profile.avatarUrl],
+    creator: config.seo.twitter.creator,
   },
   robots: {
     index: true,
@@ -83,7 +67,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   alternates: {
-    canonical: "https://pandev00.sitehub.bio",
+    canonical: config.seo.url,
   },
   verification: {
     google: "your-google-verification-code",

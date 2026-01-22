@@ -9,7 +9,7 @@ import ProductCard from "./bio/ProductCard";
 import ProductDetail from "./bio/ProductDetail";
 import MiniProfile from "./bio/MiniProfile";
 import PromoFooter from "./bio/PromoFooter";
-import { products, findProductById, profileData, Product } from "./bio/data";
+import { config, findProductById, Product } from "../config";
 
 import { LanguageProvider, useLanguage } from "@/i18n/LanguageContext";
 
@@ -62,8 +62,8 @@ const MainPageContent = () => {
       <AnimatePresence>
         {!isProfileVisible && !selectedProduct && (
           <MiniProfile
-            name={profileData.name}
-            avatarUrl={profileData.avatarUrl}
+            name={config.profile.name}
+            avatarUrl={config.profile.avatarUrl}
             onClick={toggleProfile}
           />
         )}
@@ -84,10 +84,10 @@ const MainPageContent = () => {
               >
                 <div className="lg:sticky lg:top-12">
                   <ProfileHeader
-                    name={profileData.name}
-                    bio={profileData.bio}
-                    avatarUrl={profileData.avatarUrl}
-                    socials={profileData.socials}
+                    name={config.profile.name}
+                    bio={config.profile.bio}
+                    avatarUrl={config.profile.avatarUrl}
+                    socials={config.profile.socials}
                     onToggleProfile={toggleProfile}
                   />
                   <div className="hidden lg:flex justify-center mt-8">
@@ -121,7 +121,7 @@ const MainPageContent = () => {
               >
                 <CategoryBadge label={t("products")} />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  {products.products.map((product) => (
+                  {config.products.products.map((product) => (
                     <ProductCard
                       key={product.id}
                       imageUrl={product.imageUrl}
@@ -145,7 +145,7 @@ const MainPageContent = () => {
 
                 <CategoryBadge label={t("services")} />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  {products.services.map((product) => (
+                  {config.products.services.map((product) => (
                     <ProductCard
                       key={product.id}
                       imageUrl={product.imageUrl}
@@ -169,7 +169,7 @@ const MainPageContent = () => {
 
                 <CategoryBadge label={t("consulting")} />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {products.consulting.map((product) => (
+                  {config.products.consulting.map((product) => (
                     <ProductCard
                       key={product.id}
                       imageUrl={product.imageUrl}

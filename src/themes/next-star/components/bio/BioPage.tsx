@@ -9,13 +9,13 @@ import MiniProfile from "./MiniProfile";
 import { useLanguage } from "@/i18n/LanguageContext";
 import PromoFooter from "./PromoFooter";
 
-import { profileData, products, findProductById, type Product } from "./data";
+import { config, findProductById, type Product } from "../../config";
 
 // Exports handled by re-exporting if needed, or just using imports.
 // Original exports were: export { products, findProductById, profileData };
 // Since we imported them, we can re-export them if other files rely on BioPage for them, but BioPage is likely a leaf.
 // Actually, let's keep the export to be safe.
-export { products, findProductById, profileData };
+// export { products, findProductById, profileData };
 
 interface BioPageProps {
   productId?: string;
@@ -58,8 +58,8 @@ const BioPage = ({ productId }: BioPageProps) => {
       <AnimatePresence>
         {!isProfileVisible && !selectedProduct && (
           <MiniProfile
-            name={profileData.name}
-            avatarUrl={profileData.avatarUrl}
+            name={config.profile.name}
+            avatarUrl={config.profile.avatarUrl}
             onClick={toggleProfile}
           />
         )}
@@ -82,10 +82,10 @@ const BioPage = ({ productId }: BioPageProps) => {
               >
                 <div className="lg:sticky lg:top-12 flex flex-col">
                   <ProfileHeader
-                    name={profileData.name}
-                    bio={profileData.bio}
-                    avatarUrl={profileData.avatarUrl}
-                    socials={profileData.socials}
+                    name={config.profile.name}
+                    bio={config.profile.bio}
+                    avatarUrl={config.profile.avatarUrl}
+                    socials={config.profile.socials}
                     onToggleProfile={toggleProfile}
                   />
                   {/* Promo - Desktop only, below profile */}
@@ -122,14 +122,14 @@ const BioPage = ({ productId }: BioPageProps) => {
                 {/* Products Category */}
                 <CategoryBadge label={t("products")} />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  {products.products.map((product) => (
+                  {config.products.products.map((product) => (
                     <ProductCard
                       key={product.id}
                       imageUrl={product.imageUrl}
-                      title={t(product.titleKey as any)}
-                      description={t(product.descriptionKey as any)}
+                      title={t(product.titleKey)}
+                      description={t(product.descriptionKey)}
                       price={product.price}
-                      buttonText={t(product.buttonTextKey as any)}
+                      buttonText={t(product.buttonTextKey)}
                       isExternal={!!product.externalLink}
                       badge={product.badge}
                       badgeText={
@@ -148,14 +148,14 @@ const BioPage = ({ productId }: BioPageProps) => {
                 {/* Services Category */}
                 <CategoryBadge label={t("services")} />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                  {products.services.map((product) => (
+                  {config.products.services.map((product) => (
                     <ProductCard
                       key={product.id}
                       imageUrl={product.imageUrl}
-                      title={t(product.titleKey as any)}
-                      description={t(product.descriptionKey as any)}
+                      title={t(product.titleKey)}
+                      description={t(product.descriptionKey)}
                       price={product.price}
-                      buttonText={t(product.buttonTextKey as any)}
+                      buttonText={t(product.buttonTextKey)}
                       isExternal={!!product.externalLink}
                       badge={product.badge}
                       badgeText={
@@ -174,14 +174,14 @@ const BioPage = ({ productId }: BioPageProps) => {
                 {/* Consulting Category */}
                 <CategoryBadge label={t("consulting")} />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {products.consulting.map((product) => (
+                  {config.products.consulting.map((product) => (
                     <ProductCard
                       key={product.id}
                       imageUrl={product.imageUrl}
-                      title={t(product.titleKey as any)}
-                      description={t(product.descriptionKey as any)}
+                      title={t(product.titleKey)}
+                      description={t(product.descriptionKey)}
                       price={product.price}
-                      buttonText={t(product.buttonTextKey as any)}
+                      buttonText={t(product.buttonTextKey)}
                       isExternal={!!product.externalLink}
                       badge={product.badge}
                       badgeText={

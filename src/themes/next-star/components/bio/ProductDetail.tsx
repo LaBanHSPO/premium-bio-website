@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { toast } from "sonner";
-import type { Product } from "./data";
+import { config, type Product } from "../../config";
 
 interface ProductDetailProps {
   product: Product;
@@ -71,7 +71,7 @@ const ProductDetail = ({ product, onBack }: ProductDetailProps) => {
         <div className="w-full aspect-[16/9] md:aspect-[2/1] flex items-center justify-center p-8">
           <img
             src={product.imageUrl}
-            alt={t(product.titleKey as any)}
+            alt={t(product.titleKey)}
             className="max-h-full max-w-[60%] object-contain rounded-lg"
           />
         </div>
@@ -79,7 +79,7 @@ const ProductDetail = ({ product, onBack }: ProductDetailProps) => {
         {/* Product Title on Image */}
         <div className="px-6 pb-6">
           <h1 className="text-xl md:text-2xl font-semibold text-background dark:text-foreground">
-            {t(product.titleKey as any)}
+            {t(product.titleKey)}
           </h1>
         </div>
       </div>
@@ -124,7 +124,7 @@ const WhiteLabelContent = () => {
       <div className="mt-8 p-6 border border-border rounded-xl bg-muted/30">
         <Button
           className="w-full bg-[hsl(170,100%,19%)] hover:bg-[hsl(170,100%,15%)] text-white rounded-full py-6"
-          onClick={() => window.open("mailto:hello@sagozen.digital", "_blank")}
+          onClick={() => window.open(`mailto:${config.profile.socials.email}`, "_blank")}
         >
           {t("contactUs")}
         </Button>
@@ -188,7 +188,7 @@ const PersonalBrandContent = () => {
         <p className="font-medium">{t("enrollBelow")}</p>
         <Button
           className="w-full bg-[hsl(170,100%,19%)] hover:bg-[hsl(170,100%,15%)] text-white rounded-full py-6"
-          onClick={() => window.open("https://sagozen.digital/discord", "_blank")}
+          onClick={() => window.open(config.profile.socials.link || "#", "_blank")}
         >
           {t("joinCommunity")}
         </Button>
@@ -251,7 +251,7 @@ const DefaultContent = ({ product }: { product: Product }) => {
 
   return (
     <div className="space-y-4">
-      <p className="text-foreground">{t(product.descriptionKey as any)}</p>
+      <p className="text-foreground">{t(product.descriptionKey)}</p>
       {product.price && (
         <p className="text-[hsl(170,100%,19%)] font-bold text-2xl">{product.price}</p>
       )}
