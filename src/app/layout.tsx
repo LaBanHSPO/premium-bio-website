@@ -6,24 +6,23 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ReactQueryProvider } from "./providers";
+import { profileData } from "@/themes/next-star/components/bio/data";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pandev00.sitehub.bio"),
   title: {
-    default: "Ban Nguyen - Fullstack Developer | Founder Sagozen Digital",
-    template: "%s | Ban Nguyen",
+    default: "Ban Nguyen | (@pandev00)",
+    template: "%s | (@pandev00)",
   },
   description:
-    "Fullstack Developer specializing in Vibe Code, Spatial Computing, and White Label Apps. Founder of Sagozen Digital. Building innovative web and mobile solutions with modern tech stack.",
+    "Building things with code, expressing through music, centering with mindfulness",
   keywords: [
     "fullstack developer",
     "Ban Nguyen",
     "pandev00",
-    "spatial computing",
-    "white label apps",
-    "vibe code",
+    "10 years experience",
     "sagozen digital",
     "web development",
     "mobile development",
@@ -32,7 +31,6 @@ export const metadata: Metadata = {
     "typescript developer",
     "cloudflare developer",
     "software engineer",
-    "tech entrepreneur",
   ],
   authors: [{ name: "Ban Nguyen", url: "https://pandev00.sitehub.bio" }],
   creator: "Ban Nguyen",
@@ -46,25 +44,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://pandev00.sitehub.bio",
-    title: "Ban Nguyen - Fullstack Developer | Founder Sagozen Digital",
+    title: "Ban Nguyen | (@pandev00)",
     description:
-      "Fullstack Developer specializing in Vibe Code, Spatial Computing, and White Label Apps. Building innovative solutions with modern tech.",
+      "Building things with code, expressing through music, centering with mindfulness",
     siteName: "Ban Nguyen",
     images: [
       {
-        url: "/og-image.svg",
+        url: profileData.avatarUrl,
         width: 1200,
         height: 630,
-        alt: "Ban Nguyen - Fullstack Developer | Founder Sagozen Digital",
+        alt: "Ban Nguyen",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ban Nguyen - Fullstack Developer | Founder Sagozen Digital",
+    title: "Ban Nguyen | (@pandev00)",
     description:
-      "Fullstack Developer specializing in Vibe Code, Spatial Computing, and White Label Apps. Building innovative solutions with modern tech.",
-    images: ["/og-image.svg"],
+      "Building things with code, expressing through music, centering with mindfulness",
+    images: [profileData.avatarUrl],
     creator: "@pandev00",
   },
   robots: {

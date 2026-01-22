@@ -1,4 +1,12 @@
-import { Instagram, Youtube, Linkedin, Link, Twitter, X, Mail } from "lucide-react";
+import {
+  Instagram,
+  Youtube,
+  Linkedin,
+  Globe,
+  Twitter,
+  X,
+  Mail,
+} from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { Button } from "@/components/ui/button";
@@ -26,7 +34,13 @@ interface ProfileHeaderProps {
   onToggleProfile?: () => void;
 }
 
-const ProfileHeader = ({ name, bio, avatarUrl, socials, onToggleProfile }: ProfileHeaderProps) => {
+const ProfileHeader = ({
+  name,
+  bio,
+  avatarUrl,
+  socials,
+  onToggleProfile,
+}: ProfileHeaderProps) => {
   return (
     <div className="relative flex flex-col items-center text-center space-y-5">
       {/* Settings Controls - Top */}
@@ -61,9 +75,7 @@ const ProfileHeader = ({ name, bio, avatarUrl, socials, onToggleProfile }: Profi
       <h1 className="text-2xl md:text-3xl font-bold text-foreground">{name}</h1>
 
       {/* Bio */}
-      <p className="text-muted-foreground text-sm md:text-base">
-        {bio}
-      </p>
+      <p className="text-muted-foreground text-sm md:text-base">{bio}</p>
 
       {/* Social Icons */}
       {socials && (
@@ -105,7 +117,7 @@ const ProfileHeader = ({ name, bio, avatarUrl, socials, onToggleProfile }: Profi
               rel="noopener noreferrer"
               className="w-9 h-9 flex items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-all"
             >
-              <Link className="w-4 h-4" />
+              <Globe className="w-4 h-4" />
             </a>
           )}
           {socials.linkedin && (
