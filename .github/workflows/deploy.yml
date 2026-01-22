@@ -3,10 +3,8 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
       - next-link
+
 
 jobs:
   deploy:
