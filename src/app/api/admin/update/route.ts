@@ -7,11 +7,11 @@ export const runtime = 'edge';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    
-    // Validate dữ liệu đầu vào
+
+    // Validate input data
     const validatedData = adminFormSchema.parse(body);
-    
-    // Kiểm tra admin secret
+
+    // Check admin secret
     const adminSecret = process.env.ADMIN_SECRET;
     if (!adminSecret || validatedData.adminSecret !== adminSecret) {
       return NextResponse.json(
@@ -19,8 +19,8 @@ export async function POST(request: NextRequest) {
         { status: 401 }
       );
     }
-    
-    // Kiểm tra Edge Config token
+
+    // Check Edge Config token
     const edgeConfigToken = process.env.EDGE_CONFIG_TOKEN;
     if (!edgeConfigToken) {
       return NextResponse.json(
@@ -28,8 +28,8 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
-    
-    // Cập nhật Edge Config
+
+    // Update Edge Config
     const edgeConfigId = process.env.EDGE_CONFIG_ID;
     if (!edgeConfigId) {
       return NextResponse.json(
@@ -38,22 +38,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Lấy dữ liệu hiện tại
+    // Get current data
     const { get } = await import('@vercel/edge-config');
     const allBioData = await get('bioData') || {};
     const domain = process.env.DOMAIN || 'default';
 
-    // Đảm bảo allBioData là object
+    // Ensure allBioData is an object
     const bioDataObject = typeof allBioData === 'object' && allBioData !== null
       ? allBioData
       : {};
 
-    // Cập nhật dữ liệu cho domain hiện tại
-    const updatedData =  {
+    // Update data for current domain
+    const updatedData = {
       ...bioDataObject,
       [domain]: validatedData.bioData
     };
-    
+
     const updateResponse = await fetch(
       `https://api.vercel.com/v1/edge-config/${edgeConfigId}/items`,
       {
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
         }),
       }
     );
-    
+
     if (!updateResponse.ok) {
       const errorText = await updateResponse.text();
       console.error('Edge Config update failed:', errorText);
@@ -82,22 +82,22 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
-    
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Bio data updated successfully' 
+
+    return NextResponse.json({
+      success: true,
+      message: 'Bio data updated successfully'
     });
-    
+
   } catch (error) {
     console.error('Update error:', error);
-    
+
     if (error instanceof ZodError) {
       return NextResponse.json(
         { error: 'Invalid data format', details: error.message },
         { status: 400 }
       );
     }
-    
+
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

@@ -1,37 +1,30 @@
 import { NextResponse } from 'next/server';
 import { BioData } from '@/lib/types';
 
-// Fallback data từ các file hiện tại
-import { profileData } from '@/data/profile';
-import { socialLinksData } from '@/data/links';
-import { productsData } from '@/data/products';
-import { aiToolsData } from '@/data/tools';
+import { config } from '@/theme/config';
 
-const fallbackData: BioData = {
-  profile: profileData,
-  links: socialLinksData,
-  products: productsData,
-  aiTools: aiToolsData,
-};
+
+// Cast config to BioData or any to bypass type check if structures differ slightly between themes
+const fallbackData = config as unknown as BioData;
 
 export async function GET() {
   try {
-    // Trong môi trường development, chỉ trả về fallback data
+    // In development environment, only return fallback data
     // if (process.env.NODE_ENV === 'development') {
     //   console.log('Development mode: returning fallback data');
     //   return NextResponse.json(fallbackData);
     // }
 
-    // Trong production, thử lấy từ Edge Config
+    // In production, try to fetch from Edge Config
     if (process.env.EDGE_CONFIG) {
       try {
         const { get } = await import('@vercel/edge-config');
         const allBioData = await get('bioData') || {};
         const domain = process.env.DOMAIN || 'default';
-        
+
         console.log(`Fetching bioData for domain: ${domain}`);
         const bioData = allBioData[domain] as BioData;
-        
+
         console.log('bioData from Edge Config:', bioData);
         if (bioData) {
           return NextResponse.json(bioData);
@@ -42,11 +35,11 @@ export async function GET() {
       }
     }
 
-    // Nếu không có dữ liệu trong Edge Config hoặc không có cấu hình, trả về fallback data
+    // If no data in Edge Config or no config, return fallback data
     return NextResponse.json(fallbackData);
   } catch (error) {
     console.error('Error fetching config:', error);
-    // Nếu có lỗi, trả về fallback data
+    // If error, return fallback data
     return NextResponse.json(fallbackData);
   }
 }

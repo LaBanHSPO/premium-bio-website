@@ -47,7 +47,7 @@ const LinkPill: React.FC<LinkPillProps> = ({
           fontFamily: "'Roboto', sans-serif"
         }}
       >
-        {/* CỘT 1: HÌNH ẢNH */}
+        {/* COLUMN 1: IMAGE */}
         <div
           className="w-1/2 h-full"
           style={{
@@ -58,7 +58,7 @@ const LinkPill: React.FC<LinkPillProps> = ({
           }}
         />
 
-        {/* CỘT 2: TIÊU ĐỀ + MÔ TẢ */}
+        {/* COLUMN 2: TITLE + DESCRIPTION */}
         <div className="w-1/2 bg-gray-50 flex flex-col justify-center items-center p-3 text-center">
           <div className="text-sm font-bold text-gray-900 leading-tight">
             {name}

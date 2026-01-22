@@ -3,24 +3,16 @@ import { BioData } from '@/lib/types';
 
 export const runtime = 'edge';
 
-// Fallback data từ các file hiện tại
-import { profileData } from '@/data/profile';
-import { socialLinksData } from '@/data/links';
-import { productsData } from '@/data/products';
-import { aiToolsData } from '@/data/tools';
+// Fallback data from theme config
+import { config } from '@/theme/config';
 
-const fallbackData: BioData = {
-  profile: profileData,
-  links: socialLinksData,
-  products: productsData,
-  aiTools: aiToolsData,
-};
+const fallbackData = config as unknown as BioData;
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json() as { adminSecret: string };
 
-    // Kiểm tra admin secret
+    // Check admin secret
     const adminSecret = process.env.ADMIN_SECRET;
     if (!adminSecret || body.adminSecret !== adminSecret) {
       return NextResponse.json(
@@ -29,7 +21,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Lấy dữ liệu hiện tại (logic tương tự /api/config)
+    // Get current data (logic similar to /api/config)
     let bioData: BioData = fallbackData;
 
     if (process.env.EDGE_CONFIG) {
@@ -42,15 +34,15 @@ export async function POST(request: NextRequest) {
         }
       } catch (edgeConfigError) {
         console.error('Edge Config error during export:', edgeConfigError);
-        // Sử dụng fallback data nếu Edge Config fails
+        // Use fallback data if Edge Config fails
       }
     }
 
-    // Tạo filename với timestamp
+    // Generate filename with timestamp
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
     const filename = `bio-data-export-${timestamp}.json`;
 
-    // Trả về dữ liệu với headers để download
+    // Return data with headers for download
     return new NextResponse(JSON.stringify(bioData, null, 2), {
       status: 200,
       headers: {

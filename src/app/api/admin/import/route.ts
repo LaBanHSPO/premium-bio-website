@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json() as { adminSecret: string; bioData: unknown };
 
-    // Kiểm tra admin secret
+    // Check admin secret
     const adminSecret = process.env.ADMIN_SECRET;
     if (!adminSecret || body.adminSecret !== adminSecret) {
       return NextResponse.json(
@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Kiểm tra dữ liệu import
+    // Check import data
     if (!body.bioData) {
       return NextResponse.json(
         { error: 'Bio data is required for import' },
@@ -25,10 +25,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate dữ liệu import với schema
+    // Validate import data with schema
     const validatedBioData = bioDataSchema.parse(body.bioData);
-    
-    // Kiểm tra Edge Config token
+
+    // Check Edge Config token
     const edgeConfigToken = process.env.EDGE_CONFIG_TOKEN;
     if (!edgeConfigToken) {
       return NextResponse.json(
@@ -36,8 +36,8 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
-    
-    // Cập nhật Edge Config (logic tương tự /api/admin/update)
+
+    // Update Edge Config (logic similar to /api/admin/update)
     const edgeConfigId = process.env.EDGE_CONFIG_ID;
     if (!edgeConfigId) {
       return NextResponse.json(
@@ -46,17 +46,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Lấy dữ liệu hiện tại
+    // Get current data
     const { get } = await import('@vercel/edge-config');
-    const allBioData = await get('bioData') || {};    
+    const allBioData = await get('bioData') || {};
     const domain = process.env.DOMAIN || 'default';
 
-    // Đảm bảo allBioData là object
-    const bioDataObject = typeof allBioData === 'object' && allBioData !== null 
-      ? allBioData 
+    // Ensure allBioData is an object
+    const bioDataObject = typeof allBioData === 'object' && allBioData !== null
+      ? allBioData
       : {};
 
-    // Cập nhật dữ liệu cho domain hiện tại
+    // Update data for current domain
     console.log('Current bioDataObject:', {
       ...bioDataObject,
       [domain]: validatedBioData
@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
       ...bioDataObject,
       [domain]: validatedBioData
     };
-    
+
     const updateResponse = await fetch(
       `https://api.vercel.com/v1/edge-config/${edgeConfigId}/items`,
       {
@@ -86,7 +86,7 @@ export async function POST(request: NextRequest) {
         }),
       }
     );
-    
+
     if (!updateResponse.ok) {
       const errorText = await updateResponse.text();
       console.error('Edge Config update failed during import:', errorText);
@@ -95,22 +95,22 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
-    
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Bio data imported successfully' 
+
+    return NextResponse.json({
+      success: true,
+      message: 'Bio data imported successfully'
     });
-    
+
   } catch (error) {
     console.error('Import error:', error);
-    
+
     if (error instanceof ZodError) {
       return NextResponse.json(
         { error: 'Invalid data format in import file', details: error.message },
         { status: 400 }
       );
     }
-    
+
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
