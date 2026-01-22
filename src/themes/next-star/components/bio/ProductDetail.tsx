@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { toast } from "sonner";
-import type { Product } from "./BioPage";
+import type { Product } from "./data";
 
 interface ProductDetailProps {
   product: Product;
@@ -17,7 +17,8 @@ const ProductDetail = ({ product, onBack }: ProductDetailProps) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyLink = async () => {
-    const url = window.location.href;
+    // Construct the detail URL
+    const url = `${window.location.origin}?product=${product.id}`;
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
@@ -45,24 +46,24 @@ const ProductDetail = ({ product, onBack }: ProductDetailProps) => {
   return (
     <div className="flex-1">
       {/* Hero Image with Back Button */}
-      <div className="relative w-full bg-foreground rounded-2xl overflow-hidden mb-6">
+      <div className="relative w-full bg-foreground dark:bg-zinc-900 rounded-2xl overflow-hidden mb-6">
         {/* Back Button */}
         <button
           onClick={onBack}
-          className="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-background flex items-center justify-center hover:bg-muted transition-colors"
+          className="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-background dark:bg-zinc-800 flex items-center justify-center hover:bg-muted dark:hover:bg-zinc-700 transition-colors"
         >
-          <ArrowLeft className="w-5 h-5 text-foreground" />
+          <ArrowLeft className="w-5 h-5 text-foreground dark:text-white" />
         </button>
 
         {/* Share Button */}
         <button
           onClick={handleCopyLink}
-          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-background flex items-center justify-center hover:bg-muted transition-colors"
+          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-background dark:bg-zinc-800 flex items-center justify-center hover:bg-muted dark:hover:bg-zinc-700 transition-colors"
         >
           {copied ? (
             <Check className="w-5 h-5 text-[hsl(170,100%,19%)]" />
           ) : (
-            <Share2 className="w-5 h-5 text-foreground" />
+            <Share2 className="w-5 h-5 text-foreground dark:text-white" />
           )}
         </button>
 
@@ -77,7 +78,7 @@ const ProductDetail = ({ product, onBack }: ProductDetailProps) => {
 
         {/* Product Title on Image */}
         <div className="px-6 pb-6">
-          <h1 className="text-xl md:text-2xl font-semibold text-background">
+          <h1 className="text-xl md:text-2xl font-semibold text-background dark:text-foreground">
             {t(product.titleKey as any)}
           </h1>
         </div>
@@ -121,10 +122,6 @@ const WhiteLabelContent = () => {
 
       {/* Contact Section */}
       <div className="mt-8 p-6 border border-border rounded-xl bg-muted/30">
-        <div className="flex items-center gap-3 mb-4">
-          <Mail className="w-5 h-5 text-[hsl(170,100%,19%)]" />
-          <span className="font-medium">{t("whiteLabelContact")}</span>
-        </div>
         <Button
           className="w-full bg-[hsl(170,100%,19%)] hover:bg-[hsl(170,100%,15%)] text-white rounded-full py-6"
           onClick={() => window.open("mailto:hello@sagozen.digital", "_blank")}
@@ -189,20 +186,12 @@ const PersonalBrandContent = () => {
       {/* Contact Form */}
       <div className="mt-8 space-y-4">
         <p className="font-medium">{t("enrollBelow")}</p>
-        <div className="space-y-3">
-          <Input
-            placeholder={t("enterName")}
-            className="bg-muted/50 border-border py-6"
-          />
-          <Input
-            placeholder={t("enterEmail")}
-            type="email"
-            className="bg-muted/50 border-border py-6"
-          />
-          <Button className="w-full bg-[hsl(170,100%,19%)] hover:bg-[hsl(170,100%,15%)] text-white rounded-full py-6">
-            {t("getInTouch")}
-          </Button>
-        </div>
+        <Button
+          className="w-full bg-[hsl(170,100%,19%)] hover:bg-[hsl(170,100%,15%)] text-white rounded-full py-6"
+          onClick={() => window.open("https://sagozen.digital/discord", "_blank")}
+        >
+          {t("joinCommunity")}
+        </Button>
       </div>
     </div>
   );
@@ -245,20 +234,12 @@ const DigitalProductsContent = () => {
       {/* Contact Form */}
       <div className="mt-8 space-y-4">
         <p className="font-medium">{t("enrollBelow")}</p>
-        <div className="space-y-3">
-          <Input
-            placeholder={t("enterName")}
-            className="bg-muted/50 border-border py-6"
-          />
-          <Input
-            placeholder={t("enterEmail")}
-            type="email"
-            className="bg-muted/50 border-border py-6"
-          />
-          <Button className="w-full bg-[hsl(170,100%,19%)] hover:bg-[hsl(170,100%,15%)] text-white rounded-full py-6">
-            {t("getInTouch")}
-          </Button>
-        </div>
+        <Button
+          className="w-full bg-[hsl(170,100%,19%)] hover:bg-[hsl(170,100%,15%)] text-white rounded-full py-6"
+          onClick={() => window.open("https://sagozen.digital/discord", "_blank")}
+        >
+          {t("joinCommunity")}
+        </Button>
       </div>
     </div>
   );
@@ -267,7 +248,7 @@ const DigitalProductsContent = () => {
 // Default fallback content
 const DefaultContent = ({ product }: { product: Product }) => {
   const { t } = useLanguage();
-  
+
   return (
     <div className="space-y-4">
       <p className="text-foreground">{t(product.descriptionKey as any)}</p>

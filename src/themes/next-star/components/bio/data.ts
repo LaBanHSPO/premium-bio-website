@@ -14,8 +14,8 @@ export type Product = {
 };
 
 export const profileData = {
-  name: "Ban Nguyen | (@pandev00)",
-  bio: "Building things with code, expressing through music, centering with mindfulness",
+  name: "Ban Nguyen",
+  bio: "Building things with code, expressing through music, centering with GamePad and Zen mind",
   avatarUrl: "https://assets.sitehub.bio/pandev00/avtarpan.png",
   socials: {
     // instagram: "https://instagram.com",

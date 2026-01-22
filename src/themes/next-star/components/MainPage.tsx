@@ -8,6 +8,7 @@ import CategoryBadge from "./bio/CategoryBadge";
 import ProductCard from "./bio/ProductCard";
 import ProductDetail from "./bio/ProductDetail";
 import MiniProfile from "./bio/MiniProfile";
+import PromoFooter from "./bio/PromoFooter";
 import { products, findProductById, profileData, Product } from "./bio/data";
 
 import { LanguageProvider, useLanguage } from "@/i18n/LanguageContext";
@@ -25,16 +26,31 @@ const MainPageContent = () => {
     undefined,
   );
 
+  // Sync state with URL parameter
+  useEffect(() => {
+    const productId = searchParams.get("product");
+    if (productId) {
+      const found = findProductById(productId);
+      if (found) {
+        setSelectedProduct(found);
+        setIsProfileVisible(false); // Make sure profile is hidden when showing detailed view
+      }
+    } else {
+      setSelectedProduct(undefined);
+      setIsProfileVisible(true);
+    }
+  }, [searchParams]);
+
   const handleProductClick = (product: Product) => {
     if (product.externalLink) {
       window.open(product.externalLink, "_blank");
     } else if (product.detailType) {
-      setSelectedProduct(product);
+      router.push(`?product=${product.id}`);
     }
   };
 
   const handleBack = () => {
-    setSelectedProduct(undefined);
+    router.push("/");
   };
 
   const toggleProfile = () => {
@@ -74,6 +90,9 @@ const MainPageContent = () => {
                     socials={profileData.socials}
                     onToggleProfile={toggleProfile}
                   />
+                  <div className="hidden lg:flex justify-center mt-8">
+                    <PromoFooter />
+                  </div>
                 </div>
               </motion.div>
             )}
@@ -115,8 +134,8 @@ const MainPageContent = () => {
                       badgeText={
                         product.badge
                           ? t(
-                              `badge${product.badge.charAt(0).toUpperCase() + product.badge.slice(1)}` as any,
-                            )
+                            `badge${product.badge.charAt(0).toUpperCase() + product.badge.slice(1)}` as any,
+                          )
                           : undefined
                       }
                       onClick={() => handleProductClick(product)}
@@ -139,8 +158,8 @@ const MainPageContent = () => {
                       badgeText={
                         product.badge
                           ? t(
-                              `badge${product.badge.charAt(0).toUpperCase() + product.badge.slice(1)}` as any,
-                            )
+                            `badge${product.badge.charAt(0).toUpperCase() + product.badge.slice(1)}` as any,
+                          )
                           : undefined
                       }
                       onClick={() => handleProductClick(product)}
@@ -163,8 +182,8 @@ const MainPageContent = () => {
                       badgeText={
                         product.badge
                           ? t(
-                              `badge${product.badge.charAt(0).toUpperCase() + product.badge.slice(1)}` as any,
-                            )
+                            `badge${product.badge.charAt(0).toUpperCase() + product.badge.slice(1)}` as any,
+                          )
                           : undefined
                       }
                       onClick={() => handleProductClick(product)}
@@ -176,8 +195,10 @@ const MainPageContent = () => {
           </AnimatePresence>
         </div>
 
-        <div className="mt-16 text-center">
-          <p className="text-muted-foreground text-sm">{t("poweredBy")}</p>
+        <div className="mt-16 text-center space-y-3">
+          <div className="lg:hidden">
+            <PromoFooter />
+          </div>
         </div>
       </div>
     </div>

@@ -88,7 +88,7 @@ const ProductCard = ({
         <Button
           onClick={onClick}
           className={`w-full rounded-full font-semibold py-6 text-base flex items-center justify-center gap-2 ${isExternal
-            ? "bg-transparent border-2 border-[hsl(170,100%,19%)] text-[hsl(170,100%,19%)] hover:bg-[hsl(170,100%,19%)]/10"
+            ? "bg-transparent border-2 border-[hsl(170,100%,19%)] text-[hsl(170,100%,19%)] dark:text-white hover:bg-[hsl(170,100%,19%)]/10"
             : "bg-[hsl(170,100%,19%)] hover:bg-[hsl(170,100%,15%)] text-white"
             }`}
         >

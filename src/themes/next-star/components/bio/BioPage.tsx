@@ -7,10 +7,9 @@ import ProductCard from "./ProductCard";
 import ProductDetail from "./ProductDetail";
 import MiniProfile from "./MiniProfile";
 import { useLanguage } from "@/i18n/LanguageContext";
+import PromoFooter from "./PromoFooter";
 
 import { profileData, products, findProductById, type Product } from "./data";
-
-
 
 // Exports handled by re-exporting if needed, or just using imports.
 // Original exports were: export { products, findProductById, profileData };
@@ -68,7 +67,9 @@ const BioPage = ({ productId }: BioPageProps) => {
 
       {/* Mobile Layout (stacked) / Desktop Layout (side by side) */}
       <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
-        <div className={`flex flex-col lg:flex-row lg:gap-12 ${!isProfileVisible && !selectedProduct ? "justify-center" : ""}`}>
+        <div
+          className={`flex flex-col lg:flex-row lg:gap-12 ${!isProfileVisible && !selectedProduct ? "justify-center" : ""}`}
+        >
           {/* Left Sidebar - Profile (sticky on desktop) */}
           <AnimatePresence>
             {isProfileVisible && !selectedProduct && (
@@ -79,7 +80,7 @@ const BioPage = ({ productId }: BioPageProps) => {
                 transition={{ duration: 0.25 }}
                 className="lg:w-80 lg:flex-shrink-0"
               >
-                <div className="lg:sticky lg:top-12">
+                <div className="lg:sticky lg:top-12 flex flex-col">
                   <ProfileHeader
                     name={profileData.name}
                     bio={profileData.bio}
@@ -87,6 +88,10 @@ const BioPage = ({ productId }: BioPageProps) => {
                     socials={profileData.socials}
                     onToggleProfile={toggleProfile}
                   />
+                  {/* Promo - Desktop only, below profile */}
+                  <div className="hidden lg:flex justify-center mt-8">
+                    <PromoFooter />
+                  </div>
                 </div>
               </motion.div>
             )}
@@ -127,7 +132,13 @@ const BioPage = ({ productId }: BioPageProps) => {
                       buttonText={t(product.buttonTextKey as any)}
                       isExternal={!!product.externalLink}
                       badge={product.badge}
-                      badgeText={product.badge ? t(`badge${product.badge.charAt(0).toUpperCase() + product.badge.slice(1)}` as any) : undefined}
+                      badgeText={
+                        product.badge
+                          ? t(
+                            `badge${product.badge.charAt(0).toUpperCase() + product.badge.slice(1)}` as any,
+                          )
+                          : undefined
+                      }
                       imageStyle={product.imageStyle}
                       onClick={() => handleProductClick(product)}
                     />
@@ -147,7 +158,13 @@ const BioPage = ({ productId }: BioPageProps) => {
                       buttonText={t(product.buttonTextKey as any)}
                       isExternal={!!product.externalLink}
                       badge={product.badge}
-                      badgeText={product.badge ? t(`badge${product.badge.charAt(0).toUpperCase() + product.badge.slice(1)}` as any) : undefined}
+                      badgeText={
+                        product.badge
+                          ? t(
+                            `badge${product.badge.charAt(0).toUpperCase() + product.badge.slice(1)}` as any,
+                          )
+                          : undefined
+                      }
                       imageStyle={product.imageStyle}
                       onClick={() => handleProductClick(product)}
                     />
@@ -167,7 +184,13 @@ const BioPage = ({ productId }: BioPageProps) => {
                       buttonText={t(product.buttonTextKey as any)}
                       isExternal={!!product.externalLink}
                       badge={product.badge}
-                      badgeText={product.badge ? t(`badge${product.badge.charAt(0).toUpperCase() + product.badge.slice(1)}` as any) : undefined}
+                      badgeText={
+                        product.badge
+                          ? t(
+                            `badge${product.badge.charAt(0).toUpperCase() + product.badge.slice(1)}` as any,
+                          )
+                          : undefined
+                      }
                       imageStyle={product.imageStyle}
                       onClick={() => handleProductClick(product)}
                     />
@@ -179,10 +202,11 @@ const BioPage = ({ productId }: BioPageProps) => {
         </div>
 
         {/* Footer */}
-        <div className="mt-16 text-center">
-          <p className="text-muted-foreground text-sm">
-            {t("poweredBy")} <a href="https://sagozen.digital/" target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors">SAGOZEN DIGITAL LLC</a>
-          </p>
+        <div className="mt-16 text-center space-y-3">
+          {/* Promo - Mobile only, at bottom */}
+          <div className="lg:hidden">
+            <PromoFooter />
+          </div>
         </div>
       </div>
     </div>

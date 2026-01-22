@@ -6,7 +6,7 @@ export const translations = {
     // Categories
     products: "Products",
     services: "Services",
-    consulting: "Consulting",
+    consulting: "Academy",
 
     // Product Buttons
     detail: "Detail",
@@ -30,7 +30,7 @@ export const translations = {
     whiteLabelPetTitle: "White Label Pet Business Web App",
     whiteLabelPetDesc: "Complete pet care management solution for your business.",
     personalBrandCardTitle: "Build A Profitable Personal Brand In 30 Days",
-    personalBrandCardDesc: "7 Day challenge replay. Implement your personalized skill stack, minimum viable offer, and distribution system.",
+    personalBrandCardDesc: "30 Day challenge replay. Implement your personalized skill stack, minimum viable offer, and distribution system.",
     digitalProductCardTitle: "Your First Digital Product In 7 Days",
     digitalProductCardDesc: "Learn to create and sell 3D graphics, book covers, KDP books, and POD decorative gift items.",
 
@@ -67,6 +67,7 @@ export const translations = {
     enrollBelow: "Get started below when you're ready.",
     getInTouch: "Get In Touch",
     contactUs: "Contact Us",
+    joinCommunity: "Join Community (Discord)",
     enterName: "Enter your name",
     enterEmail: "Enter your email",
     linkCopied: "Link copied to clipboard!",
@@ -79,7 +80,7 @@ export const translations = {
     // Categories
     products: "Produits",
     services: "Services",
-    consulting: "Conseil",
+    consulting: "Académie",
 
     // Product Buttons
     detail: "Détail",
@@ -139,6 +140,7 @@ export const translations = {
     enrollBelow: "Commencez ci-dessous quand vous êtes prêt.",
     getInTouch: "Nous Contacter",
     contactUs: "Contactez-nous",
+    joinCommunity: "Rejoindre la Communauté (Discord)",
     enterName: "Entrez votre nom",
     enterEmail: "Entrez votre email",
     linkCopied: "Lien copié dans le presse-papiers!",
@@ -151,7 +153,7 @@ export const translations = {
     // Categories
     products: "Produkte",
     services: "Dienstleistungen",
-    consulting: "Beratung",
+    consulting: "Akademie",
 
     // Product Buttons
     detail: "Details",
@@ -211,6 +213,7 @@ export const translations = {
     enrollBelow: "Starten Sie unten, wenn Sie bereit sind.",
     getInTouch: "Kontakt Aufnehmen",
     contactUs: "Kontaktieren Sie uns",
+    joinCommunity: "Community Beitreten (Discord)",
     enterName: "Geben Sie Ihren Namen ein",
     enterEmail: "Geben Sie Ihre E-Mail ein",
     linkCopied: "Link in die Zwischenablage kopiert!",
@@ -223,7 +226,7 @@ export const translations = {
     // Categories
     products: "製品",
     services: "サービス",
-    consulting: "コンサルティング",
+    consulting: "アカデミー",
 
     // Product Buttons
     detail: "詳細を見る",
@@ -283,6 +286,7 @@ export const translations = {
     enrollBelow: "準備ができたら下から始めてください。",
     getInTouch: "お問い合わせ",
     contactUs: "ご連絡ください",
+    joinCommunity: "コミュニティに参加 (Discord)",
     enterName: "お名前を入力",
     enterEmail: "メールアドレスを入力",
     linkCopied: "リンクをクリップボードにコピーしました！",
@@ -295,7 +299,7 @@ export const translations = {
     // Categories
     products: "제품",
     services: "서비스",
-    consulting: "컨설팅",
+    consulting: "아카데미",
 
     // Product Buttons
     detail: "상세 보기",
@@ -355,6 +359,7 @@ export const translations = {
     enrollBelow: "준비되면 아래에서 시작하세요.",
     getInTouch: "연락하기",
     contactUs: "문의하기",
+    joinCommunity: "커뮤니티 참여 (Discord)",
     enterName: "이름을 입력하세요",
     enterEmail: "이메일을 입력하세요",
     linkCopied: "링크가 클립보드에 복사되었습니다!",
