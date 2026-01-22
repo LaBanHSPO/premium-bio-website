@@ -38,7 +38,7 @@ const nextConfig = {
   webpack: (config) => {
     const theme = process.env.THEME || "next-star";
     const path = require("path");
-
+    console.log(`Building with env: ${process.env.THEME}`);
     console.log(`Building with theme: ${theme}`);
 
     config.resolve.alias = {

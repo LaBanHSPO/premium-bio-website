@@ -3,11 +3,11 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/update-tsconfig.js && next dev",
+    "build": "node scripts/update-tsconfig.js && next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:build": "node scripts/update-tsconfig.js && npx @cloudflare/next-on-pages",
     "pages:deploy": "npx wrangler pages deploy"
   },
   "dependencies": {
