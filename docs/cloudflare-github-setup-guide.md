@@ -26,9 +26,6 @@ This guide will walk you through setting up automatic deployment to Cloudflare P
 
    **Permissions:**
    - Account - Cloudflare Pages - Edit
-   - Account - D1 - Edit (if using D1)
-   - Account - Workers KV Storage - Edit (if using KV)
-   - Account - Workers R2 Storage - Edit (if using R2)
 
    **Account Resources:**
    - Include - Your Account (select your account)
@@ -50,41 +47,18 @@ This guide will walk you through setting up automatic deployment to Cloudflare P
 4. Configure build settings:
    - **Project name:** `premium-bio-website`
    - **Production branch:** `main`
+   - **Framework preset:** Next.js (Static HTML Export)
    - **Build command:** `npm run pages:build`
    - **Build output directory:** `.vercel/output/static`
 5. Click **"Save and Deploy"**
 
-### Configure Environment Variables in Cloudflare
+### Configure Environment Variables (Optional)
 
 1. In your Cloudflare Pages project, go to **Settings** → **Environment variables**
-2. Add the following variables for **Production**:
+2. Add variables if needed (e.g., `THEME` to switch themes):
    ```
-   ADMIN_SECRET=your_secure_admin_secret
-   NODE_ENV=production
+   THEME=next-star
    ```
-3. Add any other environment variables your app needs
-4. Click **"Save"**
-
-### Configure Bindings (D1, KV, R2)
-
-1. In your Cloudflare Pages project, go to **Settings** → **Functions**
-2. Scroll to **"Bindings"**
-
-**Add D1 Database:**
-- Click **"Add binding"** → **"D1 database"**
-- Variable name: `DB`
-- D1 database: `premium-bio-db`
-
-**Add KV Namespaces:**
-- Add binding for `CONFIG_CACHE` → KV namespace: `CONFIG_CACHE`
-- Add binding for `SESSIONS` → KV namespace: `SESSIONS`
-- Add binding for `RATE_LIMIT` → KV namespace: `RATE_LIMIT`
-
-**Add R2 Bucket:**
-- Click **"Add binding"** → **"R2 bucket"**
-- Variable name: `MEDIA`
-- R2 bucket: `bio-media`
-
 3. Click **"Save"**
 
 ## Step 4: Add Secrets to GitHub Repository
@@ -115,7 +89,7 @@ The workflow file is already configured at `.github/workflows/deploy.yml`. It wi
 
 ## Step 6: Test the Deployment
 
-1. Make a small change to your code (e.g., update README.md)
+1. Make a small change to your code.
 2. Commit and push to `main` branch:
    ```bash
    git add .
@@ -125,11 +99,6 @@ The workflow file is already configured at `.github/workflows/deploy.yml`. It wi
 3. Go to GitHub → **Actions** tab
 4. Watch the workflow run
 5. Once completed, check your Cloudflare Pages URL
-
-## Deployment URLs
-
-- **Production:** `https://premium-bio-website.pages.dev`
-- **Custom domain:** Configure in Cloudflare Pages → Custom domains
 
 ## Troubleshooting
 
@@ -141,40 +110,9 @@ The workflow file is already configured at `.github/workflows/deploy.yml`. It wi
 - Verify `CLOUDFLARE_API_TOKEN` is correct
 - Check API token permissions include Cloudflare Pages Edit
 
-### Environment Variables Not Working
-- Add environment variables in Cloudflare Pages dashboard
-- Not in GitHub secrets (GitHub secrets are only for API tokens)
-
-### Bindings Not Working (D1, KV, R2)
-- Configure bindings in Cloudflare Pages → Settings → Functions
-- Match binding names with `wrangler.toml` configuration
-
 ### Different Output Directory
 - If build output is in different location, update `directory` in workflow
-- Common paths: `.vercel/output/static`, `out`, `dist`, `build`
-
-## Advanced: Preview Deployments
-
-The workflow automatically creates preview deployments for pull requests:
-- Each PR gets a unique preview URL
-- Preview deployments use preview bindings from `wrangler.toml`
-- Perfect for testing before merging to main
-
-## Branch Protection (Optional)
-
-To prevent direct pushes to main:
-1. Go to GitHub → **Settings** → **Branches**
-2. Add branch protection rule for `main`
-3. Enable **"Require status checks to pass"**
-4. Select **"Deploy to Cloudflare Pages"** workflow
-5. Now all changes must go through PRs and pass deployment
-
-## Next Steps
-
-1. Configure custom domain in Cloudflare Pages
-2. Set up monitoring and analytics
-3. Configure caching rules for better performance
-4. Add Cloudflare Web Analytics
+- Common paths: `.vercel/output/static`, `out`, `dist`
 
 ## Resources
 
