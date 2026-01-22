@@ -15,6 +15,13 @@ jobs:
     permissions:
       contents: read
       deployments: write
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_PROJECT_NAME: next-star
+      CLOUDFLARE_DIRECTORY: .vercel/output/static
+      CLOUDFLARE_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      CLOUDFLARE_BRANCH: ${{ github.ref_name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,12 +40,10 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: Ensure Cloudflare Pages Project Exists
+        run: |
+          npx wrangler pages project get "$CLOUDFLARE_PROJECT_NAME" || \
+          npx wrangler pages project create "$CLOUDFLARE_PROJECT_NAME" --production-branch "main"
+
       - name: Deploy to Cloudflare Pages
         run: npm run pages:deploy
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_PROJECT_NAME: nextstar
-          CLOUDFLARE_DIRECTORY: .vercel/output/static
-          CLOUDFLARE_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CLOUDFLARE_BRANCH: ${{ github.ref_name }}

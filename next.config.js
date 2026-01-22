@@ -34,7 +34,25 @@ const nextConfig = {
     serverActions: {
       allowedOrigins: ['*.pages.dev', process.env.DOMAIN].filter(Boolean)
     }
-  }
+  },
+  webpack: (config) => {
+    const theme = process.env.THEME || "next-star";
+    const path = require("path");
+
+    console.log(`Building with theme: ${theme}`);
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@/theme": path.resolve(__dirname, `src/themes/${theme}`),
+      "@/components": path.resolve(__dirname, `src/themes/${theme}/components`),
+      "@/lib": path.resolve(__dirname, `src/themes/${theme}/lib`),
+      "@/hooks": path.resolve(__dirname, `src/themes/${theme}/hooks`),
+      "@/i18n": path.resolve(__dirname, `src/themes/${theme}/i18n`),
+      "@/app-shared": path.resolve(__dirname, "src/app"),
+    };
+
+    return config;
+  },
 }
 
 module.exports = nextConfig
