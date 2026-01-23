@@ -6,7 +6,7 @@ export const config: BioData & { seo: any } = {
         name: "John Doe",
         tagline: "Digital Creator | Tech Enthusiast | Building the future",
         avatar: "https://github.com/shadcn.png",
-        coverImage: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&h=400&fit=crop",
+        coverImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop&crop=center",
         socialLinks: [
             {
                 name: "Website",
