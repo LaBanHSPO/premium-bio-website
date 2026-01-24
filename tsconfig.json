@@ -31,19 +31,19 @@
         "./src/*"
       ],
       "@/components/*": [
-        "./src/themes/next-link/components/*"
+        "./src/themes/next-star/components/*"
       ],
       "@/lib/*": [
-        "./src/themes/next-link/lib/*"
+        "./src/themes/next-star/lib/*"
       ],
       "@/hooks/*": [
-        "./src/themes/next-link/hooks/*"
+        "./src/themes/next-star/hooks/*"
       ],
       "@/i18n/*": [
-        "./src/themes/next-link/i18n/*"
+        "./src/themes/next-star/i18n/*"
       ],
       "@/theme/*": [
-        "./src/themes/next-link/*"
+        "./src/themes/next-star/*"
       ]
     },
     "noImplicitAny": false,

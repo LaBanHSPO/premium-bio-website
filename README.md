@@ -1,4 +1,4 @@
-# 🚀 Premium Bio Website - Static Next.js Template
+# 🚀 SiteHub.bio - Static Next.js Template
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
@@ -7,21 +7,21 @@
 
 > 🎉 **100% Free Forever** | Static & Fast | Easy Configuration | Fully Open Source
 
-A modern, powerful **static** bio link generator. Built with Next.js and designed to be hosted on Cloudflare Pages (or any static host) for free. 
+**SiteHub.bio** is a modern, powerful **static** bio link generator. Hosted on your Cloudflare, stored in your GitHub. You control the source code and data forever—we have zero access. Built with Next.js and designed to be hosted on Cloudflare Pages (or any static host) for free.
 
 **Live Demo**: [https://pandev00.sitehub.bio](https://pandev00.sitehub.bio)
 
 ---
 
-## 🌟 Why Choose Premium Bio Website?
+## 🌟 Why Choose SiteHub.bio?
 
-| Feature | Premium Bio Website | Linktree | Stan Store |
+| Feature | SiteHub.bio | Linktree | Stan Store |
 |---------|---------------------|----------|------------|
 | **Monthly Cost** | $0 Forever | $8-$35/mo | $29/mo |
 | **Custom Domain** | ✅ Free | ✅ Paid plans | ✅ Included |
 | **Performance** | ⚡ Static/Edge | 🐢 Server | 🐢 Server |
 | **Customization** | ✅ Full Control | ❌ Limited | ❌ Limited |
-| **Design** | ✅ Premium Themes | ❌ Basic | ✅ Good |
+| **Design** | ✅ Custom Themes | ❌ Fixed Themes | ❌ Fixed Themes |
 | **Open Source** | ✅ MIT License | ❌ | ❌ |
 
 ---
@@ -91,9 +91,40 @@ For detailed instructions, see the **[Cloudflare Setup Guide](./docs/cloudflare-
 
 ---
 
+## 🗺️ Roadmap
+
+### 📅 Weekly Themes
+Specific, tailored designs for various niches:
+- **Affiliate Markets**
+- **Content Creators**
+- **Trainers & Coaches**
+- **Developers**
+- **Business Analysts**
+- **Amazon KDP Sellers**
+
+### 📇 Business Features
+- **Organization Business Card**: Digital card with QR code sharing.
+- **Free Cloud Version**: One-click profile creation with subdomain/subpath (e.g., `username.sitehub.bio`, `sitehub.bio/username`).
+
+### 💳 Integrations
+- **Payments**: SePay (VN), Polar, PayPal, and Local Wallet/Banks global-wide support.
+
+### 🎨 Vibe Design
+- **Live Edit**: Customize themes in real-time with AI simple prompts and save configurations.
+
+### 🛠️ Admin & Infrastructure
+- **Backend Power**: Integration with Cloudflare D1, KV, and R2.
+- **Developer Tools**: Webhooks and API Keys management.
+
+---
+
 ## 🤝 Contributing
 
-We welcome contributions! Please feel free to submit a Pull Request.
+**Contributions are OPEN!** 
+
+We have an ambitious roadmap and invite developers, designers, and creators to help build the future of SiteHub.bio. Whether it's a new theme, a payment integration, or a core feature, your contribution is welcome.
+
+Please feel free to submit a Pull Request or open an issue to discuss your ideas.
 
 ---
 
