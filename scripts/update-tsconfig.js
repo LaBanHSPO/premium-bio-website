@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const theme = process.env.THEME || 'next-link';
+const theme = process.env.THEME || 'next-star';
 const tsconfigPath = path.join(process.cwd(), 'tsconfig.json');
 
 console.log(`Updating tsconfig.json for theme: ${theme}`);
