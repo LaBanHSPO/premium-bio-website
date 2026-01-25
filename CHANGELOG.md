@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2026-01-25
+
+### 📚 Documentation & Guides
+- **Comprehensive Deployment Guide**: Added a detailed deployment guide covering 6 different platforms to help users deploy their bio website easily (`62d5661`).
+- **RoadMap & Contribution**: Added a roadmap and contribution call-to-action to the README to encourage community involvement (`eb4b5f5`).
+
+### 🛠 Improvements & Fixes
+- **Cloudflare Compatibility**: Updated Next.js configuration to ensure full compatibility with `@cloudflare/next-on-pages` (`3c4654a`).
+- **Build Optimization**: Updated sitemap generation and Cloudflare Pages build process for better performance (`be1c5f7`).
+- **CI/CD Updates**: Refined GitHub Actions workflows for smoother operations (`f8839d8`).
+
+### 📦 Maintenance
+- **Dependency Updates**: Updated project dependencies to their latest versions (`ef7916b`).
+
 ## [1.0.0] - 2026-01-23
 
 ### 🚀 Initial Release
