@@ -1,13 +1,12 @@
-# 🚀 SiteHub.bio - Static Next.js Template
+# 🚀 SiteHub.bio - Next.js Template
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-> 🎉 **100% Free Forever** | Static & Fast | Easy Configuration | Fully Open Source
+> 🎉 **100% Free Forever** | Fast | Easy Configuration | Fully Open Source
 
-**SiteHub.bio** is a modern, powerful **static** bio link generator. Hosted on your Cloudflare, stored in your GitHub. You control the source code and data forever—we have zero access. Built with Next.js and designed to be hosted on Cloudflare Pages (or any static host) for free.
+**SiteHub.bio** is a modern Next.js bio link template featuring **Dark Mode**, **Multi-language**, and **AI-friendly design**. Since the source code is stored in your GitHub, you have complete freedom to customize every detail, create a **unique identity** that stands out from the crowd. With source code stored in your GitHub, you own your data and platform completely - we have zero access. Deploy effortlessly to **Cloudflare Pages, Vercel, Netlify, or any static host** for free.
 
 **Live Demo**: [https://pandev00.sitehub.bio](https://pandev00.sitehub.bio)
 
@@ -59,24 +58,17 @@
 ### Prerequisites
 - Google Account (for signing up GitHub and Cloudflare)
 
-## 📦 Deploy to Cloudflare (Free Forever)
+## 📦 Deploy (6 Options Available)
 
-Deploy your own bio website on Cloudflare Pages for **free**.
+We support **6 different deployment methods** to ensure you can host your site anywhere:
+1. **Cloudflare Pages** (Recommended, Free)
+2. **GitHub Actions → Cloudflare Pages** (Scalable, Free)
+3. **Vercel** (Free)
+4. **Netlify** (Free)
+5. **Railway** (Scalable, Free)
+6. **VPS / Nginx** (Scalable)
 
-### Quick Deploy
-
-1. **Fork this repository** on GitHub.
-2. **Connect to Cloudflare Pages**:
-   - Go to [Cloudflare Dashboard](https://dash.cloudflare.com) > Workers & Pages > Create application > Pages > Connect to Git.
-   - Select your forked repository.
-3. **Configure build settings**:
-   - **Framework Preset**: Next.js (Static HTML Export)
-   - **Build command**: `npm run pages:build`
-   - **Build output directory**: `.vercel/output/static`
-   - **Environment Variables**: Add `THEME` = `next-star` (or your chosen theme).
-4. **Deploy**!
-
-For detailed instructions, see the **[Cloudflare Setup Guide](./docs/cloudflare-github-setup-guide.md)**.
+**[👉 Click here for the Step-by-Step Deployment Guide](./docs/deployment-guide.md)**
 
 ---
 

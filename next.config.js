@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone', // Required for Cloudflare Pages Functions
+  output: process.env.DEPLOYMENT === 'cloudfare_page' ? 'standalone' : undefined, // Standalone only on Cloudflare
   // Skip type checking during build for faster builds
   typescript: {
     ignoreBuildErrors: true,
