@@ -5,10 +5,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Skip ESLint during build
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // eslint option is deprecated in Next.js 16+
   images: {
     remotePatterns: [
       {

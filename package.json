@@ -5,16 +5,16 @@
   "packageManager": "yarn@4.9.1",
   "scripts": {
     "dev": "node scripts/update-tsconfig.js && next dev",
-    "build": "node scripts/update-tsconfig.js && next build",
+    "build": "node scripts/update-tsconfig.js && next build --webpack",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "node scripts/update-tsconfig.js && npx @cloudflare/next-on-pages",
-    "build:cloudfare-page": "DEPLOYMENT=cloudfare_page node scripts/update-tsconfig.js && npx @cloudflare/next-on-pages",
-    "pages:deploy": "npx wrangler pages deploy"
+    "pages:build": "node scripts/update-tsconfig.js && opennextjs-cloudflare build",
+    "build:cloudfare-page": "node scripts/update-tsconfig.js && opennextjs-cloudflare build",
+    "pages:deploy": "npx wrangler pages deploy .open-next/assets"
   },
   "dependencies": {
-    "@cloudflare/next-on-pages": "^1.13.16",
     "@hookform/resolvers": "^3.9.0",
+    "@opennextjs/cloudflare": "^1.15.1",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
@@ -55,11 +55,11 @@
     "framer-motion": "^12.18.1",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.462.0",
-    "next": "^14.2.0",
+    "next": "^16.1.4",
     "next-themes": "^0.3.0",
-    "react": "^18.3.1",
+    "react": "^19.2.3",
     "react-day-picker": "^8.10.1",
-    "react-dom": "^18.3.1",
+    "react-dom": "^19.2.3",
     "react-hook-form": "^7.53.0",
     "react-resizable-panels": "^2.1.3",
     "recharts": "^2.12.7",
@@ -82,6 +82,6 @@
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3",
     "vercel": "^50.4.6",
-    "wrangler": "^3.111.0"
+    "wrangler": "^4.60.0"
   }
 }
