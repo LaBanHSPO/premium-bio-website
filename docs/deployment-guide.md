@@ -13,6 +13,9 @@ This document outlines the deployment strategies for SiteHub.bio. This project i
 
 This is the preferred method as the project is pre-configured for Cloudflare.
 
+### 🎥 Video Guide
+📺 [Watch the deployment tutorial on YouTube](https://youtu.be/L6LbUxtXS2A?list=PLDFbFJoLpF2WG39xXiBc-Xly4ux50r_Uq)
+
 ### 🚀 Deployment Steps
 1.  **Fork** this repository to your GitHub account.
 2.  Log in to the **[Cloudflare Dashboard](https://dash.cloudflare.com)**.

@@ -82,7 +82,7 @@ We support **6 different deployment methods** to ensure you can host your site a
 5. **Railway** (Scalable, Free)
 6. **VPS / Nginx** (Scalable)
 
-**[👉 Click here for the Step-by-Step Deployment Guide](./docs/deployment-guide.md)**
+**[👉 Click here for the Step-by-Step Deployment Guide (Video Included)](./docs/deployment-guide.md)**
 
 ---
 
