@@ -1,4 +1,4 @@
-![SiteHub.bio - 5 mins to get your own bio](./public/hero-social.png)
+![SiteHub.bio - 5 mins to get your own bio](./public/og-image.png)
 
 # 🚀 SiteHub.bio
 
