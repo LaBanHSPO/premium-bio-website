@@ -1,4 +1,6 @@
-# 🚀 SiteHub.bio - Next.js Template
+![SiteHub.bio - 5 mins to get your own bio](./public/hero-social.png)
+
+# 🚀 SiteHub.bio
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js&logoColor=white)](https://nextjs.org/)
@@ -6,9 +8,21 @@
 
 > 🎉 **100% Free Forever** | Fast | Easy Configuration | Fully Open Source
 
-**SiteHub.bio** is a modern Next.js bio link template featuring **Dark Mode**, **Multi-language**, and **AI-friendly design**. Since the source code is stored in your GitHub, you have complete freedom to customize every detail, create a **unique identity** that stands out from the crowd. With source code stored in your GitHub, you own your data and platform completely - we have zero access. Deploy effortlessly to **Cloudflare Pages, Vercel, Netlify, or any static host** for free.
+**SiteHub.bio** is a modern bio link template featuring **Dark Mode**, **Multi-language**, and **AI-friendly design**. Since the source code is stored in your GitHub, you have complete freedom to customize every detail, create a **unique identity** that stands out from the crowd. With source code stored in your GitHub, you own your data and platform completely - we have zero access. Deploy effortlessly to **Cloudflare Pages, Vercel, Netlify, or any static host** for free.
 
 **Live Demo**: [https://pandev00.sitehub.bio](https://pandev00.sitehub.bio)
+
+---
+
+## 💡 Use Cases
+
+Transform your online presence with SiteHub.bio:
+
+1. **Link in Bio** - Centralize all your social links, content, and calls-to-action in one clean page.
+2. **Digital Business Card** - Share your professional identity with a scannable QR code and instant contact info.
+3. **Portfolio & Resume** - Showcase your work, skills, and experience with a responsive, customizable profile.
+4. **Personal Store** - Display and sell digital products or services with built-in product showcase.
+5. **Micro Blog** - Share updates, articles, and thoughts with your audience in a minimalist format.
 
 ---
 
