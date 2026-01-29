@@ -142,5 +142,8 @@ export const bioConfig: BioData = {
     }
 };
 
+// Export config for sitemap and other system files that expect 'config'
+export const config = bioConfig;
+
 // Default export for convenience
 export default bioConfig;
