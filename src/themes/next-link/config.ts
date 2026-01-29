@@ -1,7 +1,15 @@
-import { BioData } from "@/lib/types";
+import type { BioData } from '@/lib/bio-types';
 
-// This file replaces src/data/*
-export const config: BioData & { seo: any } = {
+/**
+ * Bio Page Configuration
+ * 
+ * Edit this file to customize your bio page content.
+ * All fields are validated at build time via TypeScript.
+ * 
+ * Icons available for socialLinks.icon:
+ * - Globe, Twitter, Mail, Youtube
+ */
+export const bioConfig: BioData = {
     profile: {
         name: "John Doe",
         tagline: "Digital Creator | Tech Enthusiast | Building the future",
@@ -32,20 +40,58 @@ export const config: BioData & { seo: any } = {
     },
     links: [
         {
-            id: 0,
-            name: "Sample Link 1",
-            url: "https://example.com/link1",
-            description: "Description for your first link or resource.",
-            backgroundImage: "https://images.unsplash.com/photo-1557683316-973673baf926?w=800&h=400&fit=crop",
+            id: 1,
+            name: "siteHubTitle",
+            url: "https://sitehub.bio",
+            description: "siteHubDesc",
+            backgroundImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=200&fit=crop",
+            detailContent: {
+                subtitle: "siteHubDesc",
+                content: "siteHubDesc",
+                ctaText: "getInTouch",
+            },
+        },
+        {
+            id: 2,
+            name: "zenJournalTitle",
+            url: "https://zenjournal.app",
+            description: "zenJournalDesc",
+            backgroundImage: "https://images.unsplash.com/photo-1544367563-12123d8965cd?w=200&h=200&fit=crop",
+            detailContent: {
+                subtitle: "zenJournalDesc",
+                content: "zenJournalDesc",
+                ctaText: "viewDemo",
+            },
+        },
+        {
+            id: 3,
+            name: "Free Resources",
+            url: "https://example.com/resources",
+            description: "Templates, guides and tools",
+            backgroundImage: "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=200&h=200&fit=crop",
         },
     ],
     products: [
         {
             id: 1,
-            name: "Sample Product",
+            name: "whiteLabelMentalTitle",
             image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=500&fit=crop",
-            price: "$49",
-            url: "https://example.com/product",
+            price: "$499",
+            url: "https://example.com/whitelabel",
+        },
+        {
+            id: 2,
+            name: "digitalProductCardTitle",
+            image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=500&fit=crop",
+            price: "$29",
+            url: "https://example.com/digital",
+        },
+        {
+            id: 3,
+            name: "personalBrandCardTitle",
+            image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&h=500&fit=crop",
+            price: "$99",
+            url: "https://example.com/brand",
         },
     ],
     aiTools: [
@@ -72,22 +118,29 @@ export const config: BioData & { seo: any } = {
             name: "Perplexity",
             logo: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=60&h=60&fit=crop",
             url: "https://perplexity.ai"
-        }
-    ],
-    seo: {
-        title: "John Doe | Digital Creator",
-        description: "Digital Creator | Tech Enthusiast | Building the future",
-        url: "https://johndoe.com",
-        keywords: ["Creator", "Developer", "Designer"],
-        openGraph: {
-            type: "website",
-            locale: "en_US",
-            url: "https://johndoe.com",
-            siteName: "John Doe",
         },
-        twitter: {
-            creator: "@johndoe",
-            card: "summary_large_image",
-        }
+    ],
+    /**
+     * Display Settings
+     * - defaultCollapsed: Start with profile collapsed (true) or expanded (false)
+     * - showSegmentTabs: Show Links/Shop segment tabs (true/false)
+     * - showAiTools: Show AI Tools carousel section (true/false)
+     */
+    settings: {
+        defaultCollapsed: true,
+        showSegmentTabs: false,
+        showAiTools: false,
+    },
+    // Adding SEO config to match next-star structure somewhat, using minimal defaults
+    seo: {
+        title: {
+            default: "John Doe",
+            template: "%s | John Doe",
+        },
+        description: "Digital Creator | Tech Enthusiast",
+        url: "https://example.com",
     }
 };
+
+// Default export for convenience
+export default bioConfig;
