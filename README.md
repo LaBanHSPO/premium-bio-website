@@ -140,6 +140,12 @@ See the [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes.
 
 ---
 
+## 📜 Changelog
+
+See the [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes.
+
+---
+
 ## 📝 License
 
 This project is licensed under the **MIT License**.
