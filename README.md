@@ -1,27 +1,40 @@
-# 🚀 Premium Bio Website - Static Next.js Template
+![SiteHub.bio - 5 mins to get your own bio](./public/og-image.png)
+
+# 🚀 SiteHub.bio
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-> 🎉 **100% Free Forever** | Static & Fast | Easy Configuration | Fully Open Source
+> 🎉 **100% Free Forever** | Fast | Easy Configuration | Fully Open Source
 
-A modern, powerful **static** bio link generator. Built with Next.js and designed to be hosted on Cloudflare Pages (or any static host) for free. 
+**SiteHub.bio** is a modern bio link template featuring **Dark Mode**, **Multi-language**, and **AI-friendly design**. Since the source code is stored in your GitHub, you have complete freedom to customize every detail, create a **unique identity** that stands out from the crowd. With source code stored in your GitHub, you own your data and platform completely - we have zero access. Deploy effortlessly to **Cloudflare Pages, Vercel, Netlify, or any static host** for free.
 
 **Live Demo**: [https://pandev00.sitehub.bio](https://pandev00.sitehub.bio)
 
 ---
 
-## 🌟 Why Choose Premium Bio Website?
+## 💡 Use Cases
 
-| Feature | Premium Bio Website | Linktree | Stan Store |
+Transform your online presence with SiteHub.bio:
+
+1. **Link in Bio** - Centralize all your social links, content, and calls-to-action in one clean page.
+2. **Digital Business Card** - Share your professional identity with a scannable QR code and instant contact info.
+3. **Portfolio & Resume** - Showcase your work, skills, and experience with a responsive, customizable profile.
+4. **Personal Store** - Display and sell digital products or services with built-in product showcase.
+5. **Micro Blog** - Share updates, articles, and thoughts with your audience in a minimalist format.
+
+---
+
+## 🌟 Why Choose SiteHub.bio?
+
+| Feature | SiteHub.bio | Linktree | Stan Store |
 |---------|---------------------|----------|------------|
 | **Monthly Cost** | $0 Forever | $8-$35/mo | $29/mo |
 | **Custom Domain** | ✅ Free | ✅ Paid plans | ✅ Included |
 | **Performance** | ⚡ Static/Edge | 🐢 Server | 🐢 Server |
 | **Customization** | ✅ Full Control | ❌ Limited | ❌ Limited |
-| **Design** | ✅ Premium Themes | ❌ Basic | ✅ Good |
+| **Design** | ✅ Custom Themes | ❌ Fixed Themes | ❌ Fixed Themes |
 | **Open Source** | ✅ MIT License | ❌ | ❌ |
 
 ---
@@ -59,24 +72,17 @@ A modern, powerful **static** bio link generator. Built with Next.js and designe
 ### Prerequisites
 - Google Account (for signing up GitHub and Cloudflare)
 
-## 📦 Deploy to Cloudflare (Free Forever)
+## 📦 Deploy (6 Options Available)
 
-Deploy your own bio website on Cloudflare Pages for **free**.
+We support **6 different deployment methods** to ensure you can host your site anywhere:
+1. **Cloudflare Pages** (Recommended, Free)
+2. **GitHub Actions → Cloudflare Pages** (Scalable, Free)
+3. **Vercel** (Free)
+4. **Netlify** (Free)
+5. **Railway** (Scalable, Free)
+6. **VPS / Nginx** (Scalable)
 
-### Quick Deploy
-
-1. **Fork this repository** on GitHub.
-2. **Connect to Cloudflare Pages**:
-   - Go to [Cloudflare Dashboard](https://dash.cloudflare.com) > Workers & Pages > Create application > Pages > Connect to Git.
-   - Select your forked repository.
-3. **Configure build settings**:
-   - **Framework Preset**: Next.js (Static HTML Export)
-   - **Build command**: `npm run pages:build`
-   - **Build output directory**: `.vercel/output/static`
-   - **Environment Variables**: Add `THEME` = `next-star` (or your chosen theme).
-4. **Deploy**!
-
-For detailed instructions, see the **[Cloudflare Setup Guide](./docs/cloudflare-github-setup-guide.md)**.
+**[👉 Click here for the Step-by-Step Deployment Guide (Video Included)](./docs/deployment-guide.md)**
 
 ---
 
@@ -91,9 +97,46 @@ For detailed instructions, see the **[Cloudflare Setup Guide](./docs/cloudflare-
 
 ---
 
+## 🗺️ Roadmap
+
+### 📅 Weekly Themes
+Specific, tailored designs for various niches:
+- **Affiliate Markets**
+- **Content Creators**
+- **Trainers & Coaches**
+- **Developers**
+- **Business Analysts**
+- **Amazon KDP Sellers**
+
+### 📇 Business Features
+- **Organization Business Card**: Digital card with QR code sharing.
+- **Free Cloud Version**: One-click profile creation with subdomain/subpath (e.g., `username.sitehub.bio`, `sitehub.bio/username`).
+
+### 💳 Integrations
+- **Payments**: SePay (VN), Polar, PayPal, and Local Wallet/Banks global-wide support.
+
+### 🎨 Vibe Design
+- **Live Edit**: Customize themes in real-time with AI simple prompts and save configurations.
+
+### 🛠️ Admin & Infrastructure
+- **Backend Power**: Integration with Cloudflare D1, KV, and R2.
+- **Developer Tools**: Webhooks and API Keys management.
+
+---
+
 ## 🤝 Contributing
 
-We welcome contributions! Please feel free to submit a Pull Request.
+**Contributions are OPEN!** 
+
+We have an ambitious roadmap and invite developers, designers, and creators to help build the future of SiteHub.bio. Whether it's a new theme, a payment integration, or a core feature, your contribution is welcome.
+
+Please feel free to submit a Pull Request or open an issue to discuss your ideas.
+
+---
+
+## 📜 Changelog
+
+See the [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes.
 
 ---
 

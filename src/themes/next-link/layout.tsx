@@ -1,79 +1,42 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { ReactQueryProvider } from "@/app-shared/providers";
-import { config } from "./config";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import bioConfig from "./config";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    metadataBase: new URL(config.seo.url),
-    title: {
-        default: config.seo.title,
-        template: `%s | ${config.seo.title}`,
-    },
-    description: config.seo.description,
-    keywords: config.seo.keywords,
-    authors: [{ name: config.profile.name, url: config.seo.url }],
-    creator: config.profile.name,
-    publisher: "SiteHub",
-    formatDetection: {
-        email: false,
-        address: false,
-        telephone: false,
-    },
+    title: bioConfig.seo.title.default,
+    description: bioConfig.seo.description,
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: config.seo.url,
-        title: config.seo.title,
-        description: config.seo.description,
-        siteName: config.seo.openGraph.siteName,
+        url: bioConfig.seo.url,
+        title: bioConfig.seo.title.default,
+        description: bioConfig.seo.description,
+        siteName: bioConfig.profile.name,
         images: [
             {
-                url: config.profile.avatar,
+                url: bioConfig.profile.avatar,
                 width: 1200,
                 height: 630,
-                alt: config.profile.name,
+                alt: bioConfig.profile.name,
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: config.seo.title,
-        description: config.seo.description,
-        images: [config.profile.avatar],
-        creator: config.seo.twitter.creator,
-    },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-            index: true,
-            follow: true,
-            "max-video-preview": -1,
-            "max-image-preview": "large",
-            "max-snippet": -1,
-        },
+        title: bioConfig.seo.title.default,
+        description: bioConfig.seo.description,
+        images: [bioConfig.profile.avatar],
     },
     icons: {
         icon: "/favicon.ico",
-        shortcut: "/favicon-16x16.png",
-        apple: "/apple-touch-icon.png",
     },
-    manifest: "/site.webmanifest",
-    alternates: {
-        canonical: config.seo.url,
-    },
-    verification: {
-        google: "your-google-verification-code",
-        yandex: "your-yandex-verification-code",
-    },
-    category: "technology",
 };
 
 export default function RootLayout({
@@ -82,16 +45,15 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body className={inter.className}>
-                <ReactQueryProvider>
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     <TooltipProvider>
                         <Toaster />
                         <Sonner />
-                        <Analytics />
                         {children}
                     </TooltipProvider>
-                </ReactQueryProvider>
+                </ThemeProvider>
             </body>
         </html>
     );
