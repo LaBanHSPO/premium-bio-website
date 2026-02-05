@@ -37,6 +37,7 @@ yarn-error.log*
 .dev.vars
 .wrangler/
 wrangler.toml.bak
+wrangler.toml.backup
 
 # typescript
 *.tsbuildinfo

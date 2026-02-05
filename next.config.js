@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: process.env.DEPLOYMENT === 'cloudfare_page' ? 'standalone' : undefined, // Standalone only on Cloudflare
   // Skip type checking during build for faster builds
   typescript: {
     ignoreBuildErrors: true,
@@ -9,28 +8,28 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: process.env.DOMAIN || '**',
+        protocol: "https",
+        hostname: process.env.DOMAIN || "**",
       },
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
+        protocol: "https",
+        hostname: "images.unsplash.com",
       },
       {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
+        protocol: "https",
+        hostname: "res.cloudinary.com",
       },
       {
-        protocol: 'https',
-        hostname: '*.r2.cloudflarestorage.com', // R2 public URLs
-      }
+        protocol: "https",
+        hostname: "*.r2.cloudflarestorage.com", // R2 public URLs
+      },
     ],
   },
-  // Cloudflare Pages compatibility
+  // Cloudflare Workers compatibility
   experimental: {
     serverActions: {
-      allowedOrigins: ['*.pages.dev', process.env.DOMAIN].filter(Boolean)
-    }
+      allowedOrigins: ["*.workers.dev", process.env.DOMAIN].filter(Boolean),
+    },
   },
   webpack: (config) => {
     const theme = process.env.THEME || "next-star";
@@ -50,6 +49,6 @@ const nextConfig = {
 
     return config;
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
