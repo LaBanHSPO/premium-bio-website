@@ -23,7 +23,7 @@ export const translations = {
     // Product Titles & Descriptions (for cards)
     zenJournalTitle: "Zen Journal",
     zenJournalDesc: "A mindful journaling app for mental wellness and personal growth.",
-    siteHubTitle: "SiteHub - Premium Bio FREE Lifetime",
+    siteHubTitle: "SiteHub Bio - Your free open source, Linktree & StanStore alternative",
     siteHubDesc: "Create beautiful bio link pages with our open source solution.",
     whiteLabelMentalTitle: "White Label Mental Health App",
     whiteLabelMentalDesc: "Get a fully customized version of the Zen Journal app with your own branding!",
@@ -96,7 +96,7 @@ export const translations = {
     // Product Titles & Descriptions
     zenJournalTitle: "Zen Journal",
     zenJournalDesc: "Une application de journaling conscient pour le bien-être mental et la croissance personnelle.",
-    siteHubTitle: "SiteHub - Bio Premium GRATUIT à Vie",
+    siteHubTitle: "SiteHub Bio - Votre alternative gratuite et open source à Linktree & StanStore",
     siteHubDesc: "Créez de belles pages de liens bio avec notre solution open source.",
     whiteLabelMentalTitle: "Application Santé Mentale en Marque Blanche",
     whiteLabelMentalDesc: "Obtenez une version entièrement personnalisée de l'app Zen Journal avec votre propre marque!",
@@ -169,7 +169,7 @@ export const translations = {
     // Product Titles & Descriptions
     zenJournalTitle: "Zen Journal",
     zenJournalDesc: "Eine achtsame Tagebuch-App für psychisches Wohlbefinden und persönliches Wachstum.",
-    siteHubTitle: "SiteHub - Premium Bio KOSTENLOS Lebenslang",
+    siteHubTitle: "SiteHub Bio - Ihre kostenlose Open-Source-Alternative zu Linktree & StanStore",
     siteHubDesc: "Erstellen Sie schöne Bio-Link-Seiten mit unserer Open-Source-Lösung.",
     whiteLabelMentalTitle: "White Label Mental Health App",
     whiteLabelMentalDesc: "Holen Sie sich eine vollständig angepasste Version der Zen Journal App mit Ihrem eigenen Branding!",
@@ -242,7 +242,7 @@ export const translations = {
     // Product Titles & Descriptions
     zenJournalTitle: "Zen Journal",
     zenJournalDesc: "メンタルウェルネスと自己成長のためのマインドフルジャーナリングアプリ。",
-    siteHubTitle: "SiteHub - プレミアムBio 永久無料",
+    siteHubTitle: "SiteHub Bio - 無料オープンソースのLinktree & StanStore代替",
     siteHubDesc: "オープンソースソリューションで美しいバイオリンクページを作成。",
     whiteLabelMentalTitle: "ホワイトラベル メンタルヘルスアプリ",
     whiteLabelMentalDesc: "あなたのブランドでZen Journalアプリの完全カスタマイズ版を入手！",
@@ -315,7 +315,7 @@ export const translations = {
     // Product Titles & Descriptions
     zenJournalTitle: "Zen Journal",
     zenJournalDesc: "정신 건강과 개인 성장을 위한 마음챙김 저널링 앱.",
-    siteHubTitle: "SiteHub - 프리미엄 Bio 평생 무료",
+    siteHubTitle: "SiteHub Bio - 무료 오픈 소스 Linktree & StanStore 대안",
     siteHubDesc: "오픈 소스 솔루션으로 아름다운 바이오 링크 페이지를 만드세요.",
     whiteLabelMentalTitle: "화이트 라벨 멘탈 헬스 앱",
     whiteLabelMentalDesc: "당신의 브랜딩으로 Zen Journal 앱의 완전 맞춤형 버전을 받으세요!",
