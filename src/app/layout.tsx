@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | (@pandev00)",
   },
   description:
-    "I help people worldwide find peace through my app. Building 1M$ Global Tech company without funding",
+    "I help people worldwide find peace through my app. Building one-person global tech company without funding",
   keywords: [
     "fullstack developer",
     "Ban Nguyen",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     url: "https://pandev00.sitehub.bio",
     title: "Ban Nguyen | (@pandev00)",
     description:
-      "I help people worldwide find peace through my app. Building 1M$ Global Tech company without funding",
+      "I help people worldwide find peace through my app. Building one-person global tech company without funding",
     siteName: "Ban Nguyen",
     images: [
       {
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ban Nguyen | (@pandev00)",
     description:
-      "I help people worldwide find peace through my app. Building 1M$ Global Tech company without funding",
+      "I help people worldwide find peace through my app. Building one-person global tech company without funding",
     images: [profileData.avatarUrl],
     creator: "@pandev00",
   },

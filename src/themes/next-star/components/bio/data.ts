@@ -15,7 +15,7 @@ export type Product = {
 
 export const profileData = {
   name: "Ban Nguyen",
-  bio: "I help people worldwide find peace through my app. Building 1M$ Global Tech company without funding",
+  bio: "I help people worldwide find peace through my app. Building one-person global tech company without funding",
   avatarUrl: "https://assets.sitehub.bio/pandev00/avtarpan.png",
   socials: {
     // instagram: "https://instagram.com",
