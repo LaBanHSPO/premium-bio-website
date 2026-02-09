@@ -20,7 +20,7 @@ export const profileData = {
   socials: {
     // instagram: "https://instagram.com",
     // tiktok: "https://tiktok.com",
-    // youtube: "https://youtube.com",
+    youtube: "https://www.youtube.com/@pandev00",
     link: "https://pandev00.com",
     // linkedin: "https://linkedin.com",
     twitter: "https://x.com/pandev00",
