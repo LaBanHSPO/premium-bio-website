@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 60 4% 95%;
+    --foreground: 24 9% 10%;
+
+    --card: 60 9% 97%;
+    --card-foreground: 24 9% 10%;
+
+    --popover: 20 5% 90%;
+    --popover-foreground: 24 9% 10%;
+
+    --primary: 37 92% 50%;
+    --primary-foreground: 47 100% 96%;
+
+    --secondary: 24 5% 44%;
+    --secondary-foreground: 60 9% 97%;
+
+    --muted: 23 5% 82%;
+    --muted-foreground: 24 9% 10%;
+
+    --accent: 47 100% 96%;
+    --accent-foreground: 37 92% 50%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 85% 97%;
+
+    --border: 23 5% 82%;
+    --input: 23 5% 82%;
+    --ring: 37 92% 50%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 24 9% 10%;
+
+    --sidebar-primary: 37 92% 50%;
+
+    --sidebar-primary-foreground: 47 100% 96%;
+
+    --sidebar-accent: 24 5% 44%;
+
+    --sidebar-accent-foreground: 60 9% 97%;
+
+    --sidebar-border: 23 5% 82%;
+
+    --sidebar-ring: 37 92% 50%;
+
+    --chart-1: 45 96% 64%;
+
+    --chart-2: 47 95% 53%;
+
+    --chart-3: 43 96% 56%;
+
+    --chart-4: 37 92% 50%;
+
+    --chart-5: 24 5% 44%;
+
+    --sidebar: 60 9% 97%;
+
+    --font-sans: 'Source Sans Pro', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+
+    --font-serif: 'Source Serif Pro', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+
+    --font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+
+    --tracking-normal: 0em;
+
+    --spacing: 0.25rem;
+
+    /* Bio-link theme - Professional warm tone */
+    --bio-background: linear-gradient(135deg, 
+      hsl(28 42% 65%) 0%, 
+      hsl(25 39% 60%) 50%, 
+      hsl(22 35% 54%) 100%);
+    --bio-card: 0 0% 100%;
+    --bio-accent: 0 0% 13%;
+  }
+
+  .dark {
+    --background: 24 9% 10%;
+    --foreground: 60 9% 97%;
+
+    --card: 12 6% 15%;
+    --card-foreground: 60 9% 97%;
+
+    --popover: 30 6% 25%;
+    --popover-foreground: 60 9% 97%;
+
+    --primary: 43 96% 56%;
+    --primary-foreground: 20 91% 14%;
+
+    --secondary: 24 5% 44%;
+    --secondary-foreground: 60 9% 97%;
+
+    --muted: 24 5% 44%;
+    --muted-foreground: 60 9% 97%;
+
+    --accent: 25 83% 14%;
+    --accent-foreground: 47 95% 53%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 85% 97%;
+
+    --border: 33 5% 32%;
+    --input: 33 5% 32%;
+    --ring: 43 96% 56%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 60 9% 97%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 20 91% 14%;
+    --sidebar-accent: 47 95% 53%;
+    --sidebar-accent-foreground: 25 83% 14%;
+    --sidebar-border: 33 5% 32%;
+    --sidebar-ring: 43 96% 56%;
+    --chart-1: 45 96% 64%;
+    --chart-2: 48 96% 76%;
+    --chart-3: 43 96% 56%;
+    --chart-4: 37 92% 50%;
+    --chart-5: 33 5% 32%;
+    --sidebar: 12 6% 15%;
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+
+    /* Bio-link theme - Dark mode */
+    --bio-background: 0 0% 10%;
+    --bio-card: 0 0% 17%;
+    --bio-accent: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Bio-link utility classes */
+  .bio-background {
+    background: var(--bio-background);
+  }
+
+  .bio-card {
+    background-color: hsl(var(--bio-card));
+  }
+
+  .bio-accent {
+    color: hsl(var(--bio-accent));
+  }
+
+  /* Shimmer loading animation */
+  .shimmer {
+    background: linear-gradient(to right, 
+      hsl(var(--muted)) 0%, 
+      hsl(var(--muted-foreground) / 0.1) 20%, 
+      hsl(var(--muted)) 40%, 
+      hsl(var(--muted)) 100%);
+    background-size: 800px 104px;
+    animation: shimmer 1s linear infinite;
+  }
+
+  /* Smooth transitions */
+  .transition-all-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Professional blur effects */
+  .backdrop-blur-professional {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+
+  /* Glass morphism effect */
+  .glass-effect {
+    background: hsl(var(--background) / 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border) / 0.2);
+  }
+
+  /* Professional shadow */
+  .shadow-professional {
+    box-shadow: 0 20px 25px -5px hsl(0 0% 0% / 0.1), 
+                0 10px 10px -5px hsl(0 0% 0% / 0.04);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--chart-1)) 50%, hsl(var(--primary)) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+  
+  .text-gradient-reverse {
+    background: linear-gradient(135deg, hsl(var(--chart-1)) 0%, hsl(var(--primary)) 50%, hsl(var(--chart-2)) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease-in-out infinite reverse;
+  }
+  
+  .delay-1000 {
+    animation-delay: 1s;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
