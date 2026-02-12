@@ -44,7 +44,7 @@ jobs:
         run: |
           npx wrangler pages project list > projects.txt
           if ! grep -q "$CLOUDFLARE_PROJECT_NAME" projects.txt; then
-            npx wrangler pages project create "$CLOUDFLARE_PROJECT_NAME" --production-branch "main"
+            npx wrangler pages project create "$CLOUDFLARE_PROJECT_NAME" --production-branch "next-bea"
           fi
 
       - name: Deploy to Cloudflare Pages
