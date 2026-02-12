@@ -7,38 +7,87 @@ interface AboutSectionProps {
 }
 
 const AboutSection: React.FC<AboutSectionProps> = ({ about }) => {
-    return (
-        <section className="bg-accent py-16 md:py-24 px-6 md:px-16 lg:px-24">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 md:gap-16 items-start">
-                {/* Portrait Image */}
-                <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.7 }}
-                    className="w-full md:w-2/5 flex-shrink-0"
-                >
-                    <img
-                        src={about.image}
-                        alt="About"
-                        className="w-full rounded-lg object-cover aspect-[3/4]"
-                    />
-                </motion.div>
+    const stats = [
+        { label: 'Years Active', value: '5+' },
+        { label: 'Campaigns', value: '100+' },
+        { label: 'Awards', value: '12' }
+    ];
 
-                {/* Text Content */}
-                <motion.div
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.7, delay: 0.2 }}
-                    className="flex-1 space-y-6"
-                >
-                    {about.paragraphs.map((p, i) => (
-                        <p key={i} className="text-foreground/80 text-base md:text-lg leading-relaxed font-serif">
-                            {p}
-                        </p>
-                    ))}
-                </motion.div>
+    const fadeInUp = {
+        initial: { opacity: 0, y: 40 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-100px" },
+        transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] }
+    };
+
+    return (
+        <section className="bg-secondary py-16 md:py-24 px-6 md:px-16 lg:px-24">
+            <div className="max-w-7xl mx-auto">
+                {/* Desktop: Two Column Layout */}
+                <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                    {/* Image */}
+                    <motion.div {...fadeInUp}>
+                        <div className="relative overflow-hidden rounded-2xl">
+                            <img
+                                src={about.image}
+                                alt="About"
+                                className="w-full aspect-[3/4] object-cover"
+                            />
+                        </div>
+                    </motion.div>
+
+                    {/* Content */}
+                    <div className="space-y-8">
+                        <motion.h2
+                            {...fadeInUp}
+                            transition={{ ...fadeInUp.transition, delay: 0.2 }}
+                            className="text-3xl md:text-5xl font-serif font-semibold text-secondary-foreground"
+                        >
+                            About
+                        </motion.h2>
+
+                        {/* Paragraphs */}
+                        <motion.div
+                            {...fadeInUp}
+                            transition={{ ...fadeInUp.transition, delay: 0.3 }}
+                            className="space-y-4"
+                        >
+                            {about.paragraphs.map((para, i) => (
+                                <p
+                                    key={i}
+                                    className="text-base md:text-lg text-secondary-foreground/90 font-sans leading-relaxed"
+                                >
+                                    {para}
+                                </p>
+                            ))}
+                        </motion.div>
+
+                        {/* Stats Cards */}
+                        <motion.div
+                            {...fadeInUp}
+                            transition={{ ...fadeInUp.transition, delay: 0.5 }}
+                            className="grid grid-cols-3 gap-4 mt-8"
+                        >
+                            {stats.map((stat, i) => (
+                                <motion.div
+                                    key={stat.label}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.6 + i * 0.1, duration: 0.5 }}
+                                    className="liquid-glass p-4 rounded-xl text-center"
+                                >
+                                    <p className="text-2xl md:text-3xl font-serif font-bold text-secondary-foreground">
+                                        {stat.value}
+                                    </p>
+                                    <p className="text-xs md:text-sm text-secondary-foreground/70 font-sans mt-1">
+                                        {stat.label}
+                                    </p>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    </div>
+                </div>
             </div>
         </section>
     );
